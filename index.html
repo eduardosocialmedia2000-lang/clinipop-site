@@ -156,9 +156,9 @@
   .topnav .btn-call:hover { background: var(--teal-deep); transform: translateY(-1px); }
   .topnav .btn-call svg { width: 14px; height: 14px; }
 
-  /* ============ HERO ============ */
+  /* ============ HERO (inspirado em Tommy Jepsen) ============ */
   .hero {
-    position: relative; padding: 64px 24px 80px;
+    position: relative; padding: 80px 24px 96px;
     overflow: hidden;
   }
   .hero-bg {
@@ -166,115 +166,191 @@
   }
   .blob {
     position: absolute; border-radius: 50%;
-    filter: blur(70px); opacity: .5;
+    filter: blur(80px); opacity: .35;
   }
-  .blob-1 { width: 420px; height: 420px; background: var(--orange); top: -150px; right: -120px; }
-  .blob-2 { width: 320px; height: 320px; background: var(--teal); bottom: -120px; left: -80px; opacity: .3; }
+  .blob-1 { width: 480px; height: 480px; background: var(--orange); top: -180px; right: -160px; }
+  .blob-2 { width: 360px; height: 360px; background: var(--teal); bottom: -160px; left: -120px; opacity: .25; }
 
   .hero-inner {
     max-width: 1200px; margin: 0 auto;
-    display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px;
     align-items: center; position: relative; z-index: 1;
   }
-  .hero-pill {
+
+  .hero-tag {
     display: inline-flex; align-items: center; gap: 8px;
-    background: #fff; border: 1px solid var(--line);
-    padding: 7px 16px 7px 8px; border-radius: 999px;
-    font-size: 13.5px; font-weight: 600; color: var(--ink-soft);
-    box-shadow: var(--shadow-sm); margin-bottom: 24px;
+    color: var(--ink-soft);
+    font-size: 13px; font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: 28px;
+    text-transform: uppercase;
   }
-  .hero-pill-dot {
-    width: 9px; height: 9px; border-radius: 50%; background: var(--teal);
-    box-shadow: 0 0 0 4px rgba(46,196,182,.18);
+  .hero-tag::before {
+    content: ''; width: 28px; height: 1px;
+    background: var(--orange); display: inline-block;
   }
+
   .hero h1 {
-    font-size: clamp(38px, 5.4vw, 64px);
-    margin-bottom: 22px;
+    font-size: clamp(44px, 6.5vw, 82px);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+    margin-bottom: 28px;
+    color: var(--ink);
   }
-  .hero h1 em {
-    font-style: italic;
-    background: linear-gradient(120deg, var(--orange), var(--orange-deep));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+  .hero h1 .static-text { display: block; }
+  .hero h1 .rotating-wrap {
+    display: inline-flex; align-items: baseline;
+    flex-wrap: wrap; gap: 0.2em;
   }
+  .hero h1 .prefix {
+    color: var(--ink); font-weight: 500;
+  }
+  .hero h1 .rotator {
+    position: relative;
+    display: inline-flex; overflow: hidden;
+    height: 1em; padding-left: 0;
+    vertical-align: bottom;
+    min-width: 4ch;
+  }
+  .hero h1 .rotator span {
+    position: absolute; top: 0; left: 0;
+    width: 100%;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic; font-weight: 700;
+    color: var(--orange-deep);
+    opacity: 0;
+    transform: translateY(100%);
+    animation: rotateWord 12s infinite;
+    white-space: nowrap;
+  }
+  .hero h1 .rotator span:nth-child(1) { animation-delay: 0s; }
+  .hero h1 .rotator span:nth-child(2) { animation-delay: 3s; }
+  .hero h1 .rotator span:nth-child(3) { animation-delay: 6s; }
+  .hero h1 .rotator span:nth-child(4) { animation-delay: 9s; }
+
+  @keyframes rotateWord {
+    0%, 2%   { opacity: 0; transform: translateY(100%); }
+    8%, 23%  { opacity: 1; transform: translateY(0); }
+    27%, 100%{ opacity: 0; transform: translateY(-100%); }
+  }
+
   .hero p.lead {
-    font-size: 19px; color: var(--ink-soft);
-    margin-bottom: 32px; max-width: 560px;
+    font-size: 18px; color: var(--ink-soft);
+    margin-bottom: 36px; max-width: 520px;
+    line-height: 1.55;
   }
-  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
   .btn {
     display: inline-flex; align-items: center; gap: 10px;
-    padding: 16px 24px; border-radius: 999px;
-    font-weight: 700; font-size: 15px;
+    padding: 16px 26px; border-radius: 999px;
+    font-weight: 600; font-size: 15px;
     text-decoration: none; cursor: pointer; border: none;
-    transition: transform .2s, box-shadow .2s, background .2s;
+    transition: transform .2s, box-shadow .2s, background .2s, color .2s;
   }
   .btn-primary {
-    background: var(--orange); color: #fff;
-    box-shadow: var(--shadow-md);
-  }
-  .btn-primary:hover { background: var(--orange-deep); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-  .btn-ghost {
-    background: #fff; color: var(--ink);
-    border: 1.5px solid var(--line);
-  }
-  .btn-ghost:hover { border-color: var(--orange); color: var(--orange-deep); }
-
-  .hero-card {
-    background: #fff; border-radius: var(--radius-lg);
-    padding: 30px; box-shadow: var(--shadow-md);
-    border: 1px solid var(--line);
-    position: relative; overflow: hidden;
-  }
-  .hero-card::before {
-    content: ''; position: absolute; top: -60px; right: -60px;
-    width: 160px; height: 160px; border-radius: 50%;
-    background: var(--yellow); opacity: .25;
-  }
-  .hero-card h3 {
-    font-family: 'Inter', sans-serif; font-weight: 700;
-    font-size: 13px; text-transform: uppercase;
-    letter-spacing: 0.12em; color: var(--orange-deep);
-    margin-bottom: 16px;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .hero-card h3::before { content: ''; width: 20px; height: 2px; background: var(--orange); }
-  .hero-stats {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-  }
-  .stat {
-    padding: 14px 0;
-    border-top: 1px solid var(--line);
-  }
-  .stat:nth-child(-n+2) { border-top: none; padding-top: 0; }
-  .stat strong {
-    display: block;
-    font-family: 'Fraunces', serif;
-    font-weight: 900; font-size: 32px;
-    color: var(--orange-deep); line-height: 1; margin-bottom: 4px;
-  }
-  .stat span { font-size: 13px; color: var(--ink-soft); }
-
-  /* ============ STRIP ============ */
-  .strip {
     background: var(--ink); color: #fff;
-    padding: 22px 24px;
   }
-  .strip-inner {
-    max-width: 1200px; margin: 0 auto;
-    display: flex; flex-wrap: wrap; gap: 36px;
-    justify-content: space-around; align-items: center;
+  .btn-primary:hover { background: var(--orange-deep); transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent; color: var(--ink);
+    border: 1.5px solid var(--ink);
   }
-  .strip-item {
+  .btn-ghost:hover { background: var(--ink); color: #fff; }
+
+  /* Imagem do hero (lado direito) */
+  .hero-visual {
+    position: relative; z-index: 1;
+    aspect-ratio: 4/5;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    background: var(--cream-2);
+  }
+  .hero-visual img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    animation: heroFadeIn 1.2s ease-out;
+  }
+  .hero-visual .badge-anos {
+    position: absolute; bottom: 24px; left: 24px;
+    background: #fff;
+    padding: 16px 22px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .hero-visual .badge-anos strong {
+    font-family: 'Fraunces', serif;
+    font-weight: 900; font-size: 42px;
+    line-height: 1;
+    color: var(--orange-deep);
+  }
+  .hero-visual .badge-anos span {
+    font-size: 12px; color: var(--ink-soft);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    max-width: 100px; line-height: 1.3;
+  }
+  @keyframes heroFadeIn {
+    from { opacity: 0; transform: scale(1.04); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  /* ============ DIFERENCIAIS EDITORIAL ============ */
+  .dif-editorial {
+    background: #fff;
+  }
+  .dif-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: center;
+    margin-bottom: 100px;
+  }
+  .dif-row:last-child { margin-bottom: 0; }
+  .dif-row.reverse { direction: rtl; }
+  .dif-row.reverse > * { direction: ltr; }
+  .dif-img {
+    aspect-ratio: 5/4;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: var(--cream-2);
+  }
+  .dif-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .6s ease;
+  }
+  .dif-img:hover img { transform: scale(1.04); }
+  .dif-text .label {
+    font-size: 12px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--orange-deep); margin-bottom: 14px;
     display: flex; align-items: center; gap: 10px;
-    font-size: 14px; font-weight: 500;
-    color: rgba(255,255,255,0.85);
   }
-  .strip-item svg {
-    width: 22px; height: 22px; color: var(--yellow); flex-shrink: 0;
+  .dif-text .label::before {
+    content: ''; width: 24px; height: 1px; background: var(--orange);
   }
-  .strip-item strong { color: #fff; font-weight: 700; }
+  .dif-text h3 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .dif-text p {
+    font-size: 17px; color: var(--ink-soft); line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .dif-text ul {
+    list-style: none; display: flex; flex-direction: column; gap: 8px;
+    margin-top: 14px;
+  }
+  .dif-text ul li {
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 15px; color: var(--ink);
+  }
+  .dif-text ul li::before {
+    content: '—'; color: var(--orange); flex-shrink: 0;
+  }
 
   /* ============ SECTIONS ============ */
   section.block { padding: 80px 24px; }
@@ -343,18 +419,12 @@
 
   /* ============ BANHO E TOSA DESTAQUE ============ */
   .banho-tosa {
-    background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal) 100%);
-    color: #fff; position: relative; overflow: hidden;
+    background: var(--ink); color: #fff;
+    position: relative; overflow: hidden;
   }
   .banho-tosa::before {
-    content: ''; position: absolute; top: -100px; right: -100px;
-    width: 360px; height: 360px; border-radius: 50%;
-    background: var(--yellow); opacity: .14;
-  }
-  .banho-tosa::after {
-    content: ''; position: absolute; bottom: -80px; left: -60px;
-    width: 240px; height: 240px; border-radius: 50%;
-    background: var(--orange); opacity: .18;
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 75% 30%, rgba(46,196,182,0.18), transparent 55%);
   }
   .banho-tosa .container { position: relative; z-index: 1; }
   .banho-tosa-inner {
@@ -375,20 +445,22 @@
     margin-bottom: 28px;
   }
   .bt-feature {
-    display: flex; gap: 12px; align-items: flex-start;
-    background: rgba(255,255,255,0.08);
-    border-radius: var(--radius-sm);
-    padding: 12px 16px;
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 14px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
   }
+  .bt-feature:first-child { border-top: none; }
   .bt-feature .ico {
     flex-shrink: 0; width: 28px; height: 28px;
     border-radius: 50%;
-    background: var(--yellow); color: var(--ink);
+    background: transparent; color: var(--yellow);
+    border: 1px solid rgba(255,210,63,0.4);
     display: grid; place-items: center;
-    font-weight: 900; font-size: 14px;
+    font-family: 'Fraunces', serif;
+    font-weight: 700; font-size: 13px;
   }
-  .bt-feature span { font-size: 14.5px; }
-  .bt-feature strong { color: var(--yellow); }
+  .bt-feature span { font-size: 15px; line-height: 1.55; color: rgba(255,255,255,0.85); }
+  .bt-feature strong { color: #fff; font-weight: 600; }
 
   .pacote-card {
     background: #fff; color: var(--ink);
@@ -436,26 +508,6 @@
     content: '✓'; color: var(--teal-deep); font-weight: 900; flex-shrink: 0;
   }
 
-  /* ============ DIFERENCIAIS ============ */
-  .diferenciais { background: #fff; }
-  .dif-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
-  }
-  .dif-card {
-    background: var(--cream);
-    border-radius: var(--radius-md);
-    padding: 26px; border: 1px solid var(--line);
-    transition: transform .25s, box-shadow .25s;
-  }
-  .dif-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-  .dif-num {
-    font-family: 'Fraunces', serif;
-    font-weight: 900; font-size: 42px;
-    color: var(--orange); line-height: 1;
-    margin-bottom: 12px; opacity: .8;
-  }
-  .dif-card h3 { font-size: 18px; margin-bottom: 8px; }
-  .dif-card p { font-size: 14px; color: var(--ink-soft); }
 
   /* ============ EMERGÊNCIA 24H ============ */
   .emergencia {
@@ -636,26 +688,37 @@
   /* ============ RESPONSIVO ============ */
   @media (max-width: 960px) {
     .hero-inner, .banho-tosa-inner, .local-inner, .em-inner { grid-template-columns: 1fr; gap: 36px; }
-    .servicos-grid, .dif-grid { grid-template-columns: 1fr 1fr; }
+    .dif-row { grid-template-columns: 1fr; gap: 28px; margin-bottom: 64px; }
+    .dif-row.reverse { direction: ltr; }
+    .servicos-grid { grid-template-columns: 1fr 1fr; }
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 28px; }
     .topnav a:not(.btn-cta):not(.btn-call) { display: none; }
-    .strip-inner { gap: 18px; }
+    .hero-visual { aspect-ratio: 16/12; max-height: 460px; }
+    .hero h1 { font-size: clamp(38px, 9vw, 60px); }
   }
   @media (max-width: 640px) {
     section.block { padding: 56px 18px; }
-    .hero { padding: 40px 18px 64px; }
-    .servicos-grid, .dif-grid { grid-template-columns: 1fr; }
+    .hero { padding: 44px 18px 64px; }
+    .servicos-grid { grid-template-columns: 1fr; }
     .footer-inner { grid-template-columns: 1fr; gap: 24px; text-align: left; }
-    .hero-card { padding: 22px; }
-    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: clamp(36px, 9vw, 52px); }
+    .hero h1 .rotator { min-width: 3.5ch; }
+    .hero-visual .badge-anos { bottom: 16px; left: 16px; padding: 12px 16px; }
+    .hero-visual .badge-anos strong { font-size: 32px; }
+    .hero-visual .badge-anos span { font-size: 11px; max-width: 90px; }
     .pacote-card { padding: 26px 22px; }
     .pacote-preco { font-size: 54px; }
     .local-info, .map-wrap { padding: 24px; min-height: 280px; }
     .em-btn { width: 100%; justify-content: center; }
+    .em-btns { width: 100%; }
     .brand-text strong { font-size: 19px; }
     .brand-text small { font-size: 10px; }
     .topbar-inner { padding: 12px 18px; }
     .topnav .btn-cta { padding: 8px 14px; font-size: 13px; }
+    .topnav .btn-call { padding: 8px 12px; font-size: 12px; }
+    .float-stack { bottom: 16px; right: 16px; gap: 10px; }
+    .float-btn { width: 54px; height: 54px; }
+    .float-btn svg { width: 24px; height: 24px; }
   }
 </style>
 </head>
@@ -696,47 +759,49 @@
   </div>
   <div class="hero-inner">
     <div>
-      <span class="hero-pill"><span class="hero-pill-dot"></span> 12 anos cuidando dos pets de Dois Vizinhos</span>
-      <h1>O cuidado que <em>seu pet merece</em>, com o coração que só a Clinipop tem.</h1>
-      <p class="lead">Clínica veterinária completa em Dois Vizinhos/PR. Atendimento humano, equipamentos modernos e a flexibilidade que sua rotina precisa. Plantão veterinário 24h pra emergências.</p>
+      <span class="hero-tag">Clínica veterinária · Dois Vizinhos/PR</span>
+      <h1>
+        <span class="static-text">Cuidamos do seu</span>
+        <span class="rotating-wrap">
+          <span class="rotator" aria-hidden="true">
+            <span>cachorro</span>
+            <span>gato</span>
+            <span>amigo</span>
+            <span>pet</span>
+          </span>
+        </span>
+        <span class="static-text">como família.</span>
+      </h1>
+      <p class="lead">Há doze anos atendendo as famílias e os pets de Dois Vizinhos. Consulta, cirurgia, exames, banho e tosa — e plantão 24h quando você mais precisa.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#" data-wa="hero-principal">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2.5-1.3c-.3-.2-.7-.1-1 .2l-.7.7c-1.4-.8-2.5-1.9-3.3-3.3l.7-.7c.3-.3.4-.7.2-1L9.6 6.5C9.3 5.9 8.6 5.7 8 6c-1.8.9-2.6 3-1.8 4.9 1.4 3.5 4.2 6.3 7.7 7.7 1.9.8 4-.1 4.9-1.8.3-.6.1-1.3-.5-1.6z"/></svg>
-          Agendar pelo WhatsApp
+        <a class="btn btn-primary" href="tel:+5546999099437">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Ligar agora
         </a>
-        <a class="btn btn-ghost" href="#servicos">Ver serviços</a>
+        <a class="btn btn-ghost" href="#" data-wa="hero-principal">
+          Agendar pelo WhatsApp
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
       </div>
     </div>
 
-    <aside class="hero-card">
-      <h3>Por que a Clinipop</h3>
-      <div class="hero-stats">
-        <div class="stat"><strong>12+</strong><span>anos de experiência</span></div>
-        <div class="stat"><strong>24h</strong><span>plantão veterinário</span></div>
-        <div class="stat"><strong>2</strong><span>veterinárias dedicadas</span></div>
-        <div class="stat"><strong>100+</strong><span>pets atendidos/semana</span></div>
+    <div class="hero-visual">
+      <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=900&q=80" alt="Cachorro feliz aguardando atendimento" loading="eager" />
+      <div class="badge-anos">
+        <strong>12+</strong>
+        <span>anos cuidando dos pets da cidade</span>
       </div>
-    </aside>
+    </div>
   </div>
 </section>
-
-<!-- ============ STRIP ============ -->
-<div class="strip">
-  <div class="strip-inner">
-    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11H3v10h6V11z"/><path d="M15 3l-3 8H9v10h6l5-9V3h-5z"/></svg> <strong>Equipamentos modernos:</strong> RX, ECG, Ecocardiograma, Ultrassom</div>
-    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> <strong>Plantão veterinário 24h</strong> via sobreaviso</div>
-    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> <strong>Internação</strong> com acompanhamento</div>
-    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-6 0v4"/><rect x="4" y="9" width="16" height="11" rx="2"/></svg> <strong>Buscamos e entregamos</strong> seu pet</div>
-  </div>
-</div>
 
 <!-- ============ SERVIÇOS ============ -->
 <section class="block servicos" id="servicos">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Nossos Serviços</span>
-      <h2>Tudo que seu pet precisa, <em>em um só lugar</em></h2>
-      <p>Atendimento clínico, cirurgias, exames de imagem e banho e tosa com equipe especializada e equipamentos próprios.</p>
+      <span class="eyebrow">O que fazemos</span>
+      <h2>Da consulta de rotina ao <em>pós-cirúrgico</em></h2>
+      <p>Atendimento clínico, cirurgias, exames de imagem, banho e tosa — tudo no mesmo lugar, sem você ter que correr atrás.</p>
     </div>
 
     <div class="servicos-grid">
@@ -785,34 +850,34 @@
   <div class="container">
     <div class="banho-tosa-inner">
       <div>
-        <span class="hero-pill" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.2); color: #fff;">
-          <span class="hero-pill-dot" style="background: var(--yellow);"></span> Diferencial Clinipop
-        </span>
-        <h2>Banho e Tosa com a <em>flexibilidade</em> que ninguém oferece</h2>
-        <p class="lead">100 a 150 pets banham com a gente toda semana. Aqui, se chove no dia do banho do seu pet ou se vocês têm um imprevisto, a gente remaneja — sem perder o banho.</p>
+        <span class="hero-tag" style="color: rgba(255,255,255,0.7);">Banho e tosa</span>
+        <h2 style="color:#fff; font-size:clamp(32px,4.4vw,52px); line-height:1.02; margin-bottom:20px;">
+          Entre <em style="font-style:italic; color:var(--yellow);">100 e 150 banhos</em> por semana. Cada um do seu jeito.
+        </h2>
+        <p class="lead" style="color:rgba(255,255,255,0.85); font-size:17px;">A maioria das petshops trabalha com agenda fechada. Se você não trouxe na data, perdeu o banho. Aqui é diferente — a gente entende que dia de chuva, feriado e imprevisto fazem parte da vida.</p>
 
         <div class="bt-features">
           <div class="bt-feature">
-            <div class="ico">✓</div>
-            <span><strong>Flexibilidade total:</strong> se o dia do banho cair em feriado, remarcamos pra um dia antes ou depois</span>
+            <div class="ico">1</div>
+            <span><strong>Pacote de 4 banhos</strong> com tosa higiênica grátis — R$ 85, à vista, sem cobrança recorrente.</span>
           </div>
           <div class="bt-feature">
-            <div class="ico">🚐</div>
-            <span><strong>Busca e entrega:</strong> levamos e trazemos seu pet de carro — atendemos Dois Vizinhos e cidade vizinha</span>
+            <div class="ico">2</div>
+            <span><strong>Remanejamento em feriado e imprevisto.</strong> Se cair num dia atípico, remarcamos pra um dia antes ou depois.</span>
           </div>
           <div class="bt-feature">
-            <div class="ico">⏰</div>
-            <span><strong>Sábado começa cedo:</strong> abrimos às 7h30 sexta e sábado pra você buscar o pet antes do almoço</span>
+            <div class="ico">3</div>
+            <span><strong>Buscamos e entregamos em casa.</strong> Rotas organizadas em Dois Vizinhos e na cidade vizinha.</span>
           </div>
           <div class="bt-feature">
-            <div class="ico">❤️</div>
-            <span><strong>Coração grande:</strong> a gente entende que pet é família — e cuida como se fosse</span>
+            <div class="ico">4</div>
+            <span><strong>Sex e sáb começa às 7h30.</strong> Pra você buscar o pet antes do almoço de sábado.</span>
           </div>
         </div>
 
         <a class="btn" style="background: var(--yellow); color: var(--ink);" href="#" data-wa="banho-tosa">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2.5-1.3c-.3-.2-.7-.1-1 .2l-.7.7c-1.4-.8-2.5-1.9-3.3-3.3l.7-.7c.3-.3.4-.7.2-1L9.6 6.5C9.3 5.9 8.6 5.7 8 6c-1.8.9-2.6 3-1.8 4.9 1.4 3.5 4.2 6.3 7.7 7.7 1.9.8 4-.1 4.9-1.8.3-.6.1-1.3-.5-1.6z"/></svg>
           Agendar Banho e Tosa
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
         </a>
       </div>
 
@@ -835,50 +900,61 @@
   </div>
 </section>
 
-<!-- ============ DIFERENCIAIS ============ -->
-<section class="block diferenciais" id="diferenciais">
+<!-- ============ DIFERENCIAIS (EDITORIAL) ============ -->
+<section class="block dif-editorial" id="diferenciais">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Por que escolher a Clinipop</span>
-      <h2>Mais de uma década cuidando de pets de <em>Dois Vizinhos</em></h2>
-      <p>O que faz a Clinipop diferente das outras opções da cidade.</p>
+      <span class="eyebrow">Por que aqui</span>
+      <h2>Doze anos pra entender que <em>cada pet é diferente</em></h2>
+      <p>A gente não trata por raça nem por porte. Trata por nome — e pela história que cada tutor conta na porta.</p>
     </div>
 
-    <div class="dif-grid">
-      <div class="dif-card">
-        <div class="dif-num">01</div>
-        <h3>12 anos de história</h3>
-        <p>Mais de uma década atendendo pets em Dois Vizinhos. Conhecemos a região, conhecemos os tutores e conhecemos cada raça.</p>
+    <div class="dif-row">
+      <div class="dif-img">
+        <img src="https://images.unsplash.com/photo-1612531048118-826c0d4a39ce?auto=format&fit=crop&w=900&q=80" alt="Veterinária examinando cachorro com carinho" loading="lazy" />
       </div>
-
-      <div class="dif-card">
-        <div class="dif-num">02</div>
-        <h3>Plantão 24h</h3>
-        <p>Emergência veterinária a qualquer hora via sobreaviso. Você liga, a veterinária vem atender.</p>
+      <div class="dif-text">
+        <span class="label">A equipe</span>
+        <h3>Duas veterinárias que ficam o tempo necessário</h3>
+        <p>Uma com especialização em felinos, outra com pegada cirúrgica. Pra ortopedia, endoscopia e procedimentos mais complexos, trabalhamos com profissionais parceiros que vêm aqui na clínica.</p>
+        <ul>
+          <li>Atendimento clínico, cirurgias gerais e exames de imagem no local</li>
+          <li>Internação com câmera de monitoramento</li>
+          <li>Plantão 24h via sobreaviso — você liga e a veterinária vem</li>
+        </ul>
       </div>
+    </div>
 
-      <div class="dif-card">
-        <div class="dif-num">03</div>
-        <h3>Equipe especializada</h3>
-        <p>Veterinárias com especialização em felinos e parcerias com profissionais ortopedistas para cirurgias complexas.</p>
+    <div class="dif-row reverse">
+      <div class="dif-img">
+        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=900&q=80" alt="Cachorro pequeno feliz após banho" loading="lazy" />
       </div>
-
-      <div class="dif-card">
-        <div class="dif-num">04</div>
-        <h3>Equipamentos próprios</h3>
-        <p>Raio-X, ECG, ecocardiograma e ultrassom (recém-adquirido). Diagnóstico no local, sem precisar deslocar seu pet.</p>
+      <div class="dif-text">
+        <span class="label">A flexibilidade</span>
+        <h3>Se o dia do banho cai num feriado, a gente remaneja</h3>
+        <p>A maioria das petshops trabalha com agenda fechada — se você não trouxe na data, perdeu. Aqui não. A gente sabe que pet é família, e família tem imprevisto.</p>
+        <ul>
+          <li>Buscamos e entregamos seu pet em casa (Dois Vizinhos e região)</li>
+          <li>Sex e sáb começamos às 7h30 — pra dar tempo do banho antes do almoço</li>
+          <li>Pacote de 4 banhos com tosa higiênica grátis por R$ 85</li>
+        </ul>
       </div>
+    </div>
 
-      <div class="dif-card">
-        <div class="dif-num">05</div>
-        <h3>Busca e entrega</h3>
-        <p>Rotas organizadas pra buscar e levar seu pet pra banho e tosa. Atendemos Dois Vizinhos e região.</p>
+    <div class="dif-row">
+      <div class="dif-img">
+        <img src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&w=900&q=80" alt="Gato sendo examinado em consultório veterinário" loading="lazy" />
       </div>
-
-      <div class="dif-card">
-        <div class="dif-num">06</div>
-        <h3>Internação e pós-cirúrgico</h3>
-        <p>Estrutura própria para internação com câmera de monitoramento e acompanhamento veterinário contínuo.</p>
+      <div class="dif-text">
+        <span class="label">A estrutura</span>
+        <h3>Diagnóstico no local, sem deslocar o pet</h3>
+        <p>Equipamentos próprios pra você não precisar correr atrás de exame em outra clínica — o que economiza tempo, dinheiro e o estresse do pet.</p>
+        <ul>
+          <li>Raio-X</li>
+          <li>Eletrocardiograma e ecocardiograma</li>
+          <li>Ultrassom (equipamento novo)</li>
+          <li>Endoscopia com profissional parceiro</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -889,9 +965,9 @@
   <div class="container">
     <div class="em-inner">
       <div class="em-content">
-        <span class="eyebrow">🚨 Emergência Veterinária</span>
-        <h2>Seu pet precisando <em>agora</em>?</h2>
-        <p>Atendimento de plantão 24 horas via sobreaviso. Ligue e a veterinária vem até a clínica para atender. Não importa o horário — emergência é emergência.</p>
+        <span class="eyebrow" style="background:var(--orange); color:#fff;">Plantão 24h</span>
+        <h2>Emergência? <em>Liga.</em></h2>
+        <p>Atendimento de plantão 24 horas via sobreaviso. Você liga e a veterinária vem até a clínica pra atender. Não tem horário pra urgência veterinária.</p>
       </div>
       <div class="em-btns">
         <a href="tel:+5546999099437" class="em-btn em-btn-call" aria-label="Ligar para plantão Clinipop">
@@ -964,12 +1040,18 @@
 <!-- ============ CTA FINAL ============ -->
 <section class="block cta-final">
   <div class="container">
-    <h2>Seu pet <em>merece o melhor</em>.<br>E o melhor começa por uma mensagem.</h2>
-    <p>Agende uma consulta, marque o banho e tosa ou tire suas dúvidas pelo WhatsApp. Nossa equipe responde rapidinho.</p>
-    <a class="btn-wpp" href="#" data-wa="cta-final">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2.5-1.3c-.3-.2-.7-.1-1 .2l-.7.7c-1.4-.8-2.5-1.9-3.3-3.3l.7-.7c.3-.3.4-.7.2-1L9.6 6.5C9.3 5.9 8.6 5.7 8 6c-1.8.9-2.6 3-1.8 4.9 1.4 3.5 4.2 6.3 7.7 7.7 1.9.8 4-.1 4.9-1.8.3-.6.1-1.3-.5-1.6zM12 2a10 10 0 1 0 10 10c0-1.97-.57-3.8-1.55-5.34L22 2l-4.66 1.55A9.94 9.94 0 0 0 12 2z"/></svg>
-      Chamar no WhatsApp
-    </a>
+    <h2>Vamos cuidar <em>do seu pet</em>?</h2>
+    <p>Agende uma consulta, marque banho e tosa ou tire dúvidas. A gente responde rapidinho.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a class="btn-wpp" href="tel:+5546999099437">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (46) 99909-9437
+      </a>
+      <a class="btn-wpp" style="background:#25D366;" href="#" data-wa="cta-final">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2.5-1.3c-.3-.2-.7-.1-1 .2l-.7.7c-1.4-.8-2.5-1.9-3.3-3.3l.7-.7c.3-.3.4-.7.2-1L9.6 6.5C9.3 5.9 8.6 5.7 8 6c-1.8.9-2.6 3-1.8 4.9 1.4 3.5 4.2 6.3 7.7 7.7 1.9.8 4-.1 4.9-1.8.3-.6.1-1.3-.5-1.6zM12 2a10 10 0 1 0 10 10c0-1.97-.57-3.8-1.55-5.34L22 2l-4.66 1.55A9.94 9.94 0 0 0 12 2z"/></svg>
+        WhatsApp
+      </a>
+    </div>
   </div>
 </section>
 
@@ -984,7 +1066,7 @@
           <small style="color: rgba(255,255,255,0.6);">Clínica Veterinária · Dois Vizinhos/PR</small>
         </div>
       </a>
-      <p class="desc">Cuidamos do seu pet com o coração grande de quem entende que pet é família. Há mais de 12 anos em Dois Vizinhos/PR.</p>
+      <p class="desc">Clínica veterinária em Dois Vizinhos/PR desde 2014. Atendimento clínico, cirurgia, exames, banho e tosa e plantão 24h.</p>
     </div>
 
     <div>
