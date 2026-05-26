@@ -714,22 +714,68 @@ h1, h2, h3, h4 {
   position: relative;
   margin: 0 calc(-1 * var(--space-6));
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
   padding: var(--space-7) 0 var(--space-6);
+}
+.carousel-wrap::before, .carousel-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 60px;
+  pointer-events: none;
+  z-index: 3;
+}
+.carousel-wrap::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--canvas), transparent);
+}
+.carousel-wrap::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--canvas), transparent);
 }
 .carousel-track {
   display: flex;
   gap: 20px;
   width: max-content;
-  animation: carouselScroll 32s linear infinite;
+  animation: carouselScroll 22s linear infinite;
   padding: 0 var(--space-6);
   align-items: center;
+  will-change: transform;
 }
 .carousel-wrap:hover .carousel-track { animation-play-state: paused; }
 @keyframes carouselScroll {
   from { transform: translateX(0); }
   to   { transform: translateX(calc(-50% - 10px)); }
+}
+
+/* Indicador visual de movimento */
+.carousel-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-3);
+}
+.carousel-indicator .live-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent);
+  animation: liveDot 1.6s ease-in-out infinite;
+}
+.carousel-indicator .arrow-pulse {
+  display: inline-block;
+  animation: arrowPulse 1.4s ease-in-out infinite;
+}
+@keyframes liveDot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(217,80,26,0.5); }
+  50% { opacity: 0.5; box-shadow: 0 0 0 6px rgba(217,80,26,0); }
+}
+@keyframes arrowPulse {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
 }
 
 .service-card {
@@ -1070,8 +1116,9 @@ h1, h2, h3, h4 {
   display: flex;
   gap: 16px;
   width: max-content;
-  animation: bathingScroll 36s linear infinite;
+  animation: bathingScroll 24s linear infinite;
   padding: 0 var(--space-6);
+  will-change: transform;
 }
 .bathing-carousel-wrap:hover .bathing-carousel-track { animation-play-state: paused; }
 @keyframes bathingScroll {
@@ -1798,7 +1845,14 @@ h1, h2, h3, h4 {
         <span class="eyebrow">Serviços</span>
         <h2 style="margin-top: 20px;">Do checkup ao <span class="italic">pós-cirúrgico</span>.</h2>
       </div>
-      <p>Atendimento clínico, cirurgias, exames de imagem e banho e tosa. Estrutura própria, sem precisar correr atrás de exame em outra clínica.</p>
+      <div>
+        <p>Atendimento clínico, cirurgias, exames de imagem e banho e tosa. Estrutura própria, sem precisar correr atrás de exame em outra clínica.</p>
+        <div class="carousel-indicator" style="margin-top: var(--space-5);">
+          <span class="live-dot"></span>
+          <span>Carrossel em movimento</span>
+          <span class="arrow-pulse">→</span>
+        </div>
+      </div>
     </header>
 
     <div class="carousel-wrap" aria-label="Serviços oferecidos">
@@ -1969,7 +2023,7 @@ h1, h2, h3, h4 {
         </a>
       </div>
     </div>
-    <div class="carousel-hint"><span class="hint-desktop">Passe o mouse para pausar</span><span class="hint-mobile">Deslize para ver mais</span></div>
+    <div class="carousel-hint"><span class="hint-desktop">← Rola automaticamente · passe o mouse para pausar →</span><span class="hint-mobile">← Deslize para ver mais →</span></div>
   </div>
 </section>
 
