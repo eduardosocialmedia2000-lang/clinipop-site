@@ -1001,6 +1001,11 @@ h1, h2, h3, h4 {
   height: 1px;
   background: var(--ink-line);
 }
+.carousel-hint .hint-mobile { display: none; }
+@media (hover: none) and (pointer: coarse) {
+  .carousel-hint .hint-desktop { display: none; }
+  .carousel-hint .hint-mobile { display: inline; }
+}
 
 /* ============================================================
    BANHO E TOSA — feature dark
@@ -1497,40 +1502,78 @@ h1, h2, h3, h4 {
 @media (max-width: 720px) {
   .wrap { padding: 0 var(--space-5); }
   .section, .hero { padding-top: var(--space-9); padding-bottom: var(--space-9); }
-  .hero { padding-top: 120px; }
-  .hero-title { font-size: clamp(46px, 13vw, 84px); }
-  .hero-meta { flex-wrap: wrap; gap: var(--space-4); }
-  .hero-table { grid-template-columns: 1fr 1fr; gap: var(--space-4); }
-  .hero-table dd { font-size: 17px; }
+  .hero { padding-top: 110px; }
+  .hero-title { font-size: clamp(42px, 12vw, 72px); }
+  .hero-meta { flex-wrap: wrap; gap: var(--space-3); font-size: 11px; }
+  .hero-meta .sep { display: none; }
+  .hero-lede { font-size: 16px; }
+  .hero-table { grid-template-columns: 1fr; gap: var(--space-4); padding-top: var(--space-4); }
+  .hero-table dd { font-size: 18px; word-break: keep-all; }
   .hero-image-caption .num { font-size: 44px; }
-  .intro-stats { grid-template-columns: 1fr; gap: var(--space-4); }
-  .footer-top { grid-template-columns: 1fr; }
-  .footer-bottom { font-size: 11px; }
+  .intro-image { aspect-ratio: 4/3; }
+  .intro-text .body { font-size: 15.5px; }
+  .intro-text .body p:first-child::first-letter { font-size: 44px; }
+  .intro-stats { grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+  .intro-stats dd { font-size: 28px; }
+  .footer-top { grid-template-columns: 1fr; gap: var(--space-6); padding-bottom: var(--space-6); }
+  .footer-bottom { font-size: 11px; text-align: left; gap: 8px; }
+  .footer-cta { font-size: clamp(32px, 9vw, 52px); margin-bottom: var(--space-6); max-width: 100%; }
   .bathing-price { position: relative; right: auto; top: auto; max-width: 100%; margin-top: var(--space-5); }
+  .bathing h2 { font-size: clamp(34px, 8vw, 52px); }
   .emergency-phone { font-size: clamp(40px, 11vw, 56px); }
-  .float-stack { bottom: 16px; right: 16px; }
-  .float-btn { width: 52px; height: 52px; }
+  .emergency h2 { font-size: clamp(36px, 9vw, 60px); }
+  .emergency-buttons { width: 100%; flex-wrap: wrap; }
+  .emergency-buttons .btn { flex: 1; justify-content: center; }
+  .float-stack { bottom: 16px; right: 16px; gap: 8px; }
+  .float-btn { width: 50px; height: 50px; }
+  .float-btn svg { width: 22px; height: 22px; }
   .brand-text { display: none; }
-  .nav-cta .btn { padding: 9px 14px; font-size: 12.5px; }
-  .marquee-track { font-size: 17px; gap: var(--space-6); }
+  .nav-inner { padding: 12px var(--space-5); gap: 8px; }
+  .nav-cta { gap: 6px; }
+  .nav-cta .btn { padding: 8px 12px; font-size: 12px; }
+  .nav-cta .btn-icon { width: 12px; height: 12px; }
+  .marquee-track { gap: 10px; }
+  .marquee-chip { font-size: 14px; padding: 8px 16px; }
+  .marquee-star { font-size: 11px; }
+  .marquee-row { padding: 10px 0; }
   .carousel-wrap { margin: 0 calc(-1 * var(--space-5)); padding: var(--space-5) 0; }
   .carousel-track { padding: 0 var(--space-5); gap: 14px; }
   .service-card.size-sm { width: 240px; height: 280px; }
-  .service-card.size-md { width: 270px; height: 320px; }
+  .service-card.size-md { width: 270px; height: 310px; }
   .service-card.size-lg { width: 290px; height: 340px; }
-  .service-card.style-image.size-md { width: 290px; height: 360px; }
   .service-card.style-light,
   .service-card.style-dark,
   .service-card.style-accent,
   .service-card.style-display { padding: var(--space-5) var(--space-4); }
-  .service-card.style-image .card-body { padding: var(--space-4); }
-  .service-card.style-image .card-img { height: 140px; }
-  .service-card .title { font-size: 20px !important; line-height: 1.05; word-wrap: break-word; overflow-wrap: break-word; }
+  .service-card .title { font-size: 22px !important; line-height: 1.05; word-wrap: break-word; overflow-wrap: break-word; }
   .service-card.style-display .big-num { font-size: 80px; }
-  .service-card .desc { font-size: 13px; line-height: 1.5; }
+  .service-card .desc { font-size: 13.5px; line-height: 1.5; }
   .service-card .foot-label { font-size: 10.5px; }
   .service-card .foot-arrow { width: 32px; height: 32px; }
-  .location-row dd { font-size: 18px; }
+  .carousel-hint { font-size: 10.5px; }
+  .location-row dd { font-size: 17px; }
+  .location-row { grid-template-columns: 70px 1fr; gap: 12px; }
+  .location-card { padding: var(--space-5); }
+  .map-wrap, .map-wrap iframe { min-height: 320px; }
+  .services-header { text-align: left; }
+  .section-head h2, .intro-text h2, .services-header h2 { font-size: clamp(30px, 8vw, 48px); }
+  /* Carrossel banho mobile */
+  .bathing-carousel-wrap { margin: var(--space-6) calc(-1 * var(--space-5)) 0; padding-top: var(--space-5); }
+  .bathing-carousel-track { gap: 12px; padding: 0 var(--space-5); animation-duration: 28s; }
+  .bathing-feat { width: 260px; padding: var(--space-4); gap: var(--space-2); }
+  .bathing-feat .feat-title { font-size: 18px; }
+  .bathing-feat .feat-desc { font-size: 13px; }
+}
+
+@media (max-width: 420px) {
+  .hero-title { font-size: 42px; }
+  .hero-table dd { font-size: 16px; }
+  .service-card.size-sm { width: 220px; height: 270px; }
+  .service-card.size-md { width: 250px; height: 300px; }
+  .service-card.size-lg { width: 270px; height: 330px; }
+  .bathing-feat { width: 240px; }
+  .marquee-chip { font-size: 13px; padding: 7px 14px; }
+  .emergency-buttons .btn { font-size: 12px; padding: 12px 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1924,7 +1967,7 @@ h1, h2, h3, h4 {
         </a>
       </div>
     </div>
-    <div class="carousel-hint">Passe o mouse para pausar</div>
+    <div class="carousel-hint"><span class="hint-desktop">Passe o mouse para pausar</span><span class="hint-mobile">Deslize para ver mais</span></div>
   </div>
 </section>
 
