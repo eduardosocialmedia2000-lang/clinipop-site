@@ -1050,37 +1050,74 @@ h1, h2, h3, h4 {
   margin-bottom: var(--space-7);
 }
 
-.bathing-list {
-  list-style: none;
+/* Carrossel de benefícios dentro da seção Banho */
+.bathing-carousel-wrap {
+  position: relative;
+  margin: var(--space-8) calc(-1 * var(--space-6)) 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
+  padding: var(--space-3) 0;
   border-top: 1px solid rgba(250,246,238,0.12);
+  padding-top: var(--space-7);
 }
-.bathing-list li {
-  display: grid;
-  grid-template-columns: 40px 1fr;
-  gap: var(--space-5);
-  padding: var(--space-5) 0;
-  border-bottom: 1px solid rgba(250,246,238,0.12);
-  align-items: baseline;
+.bathing-carousel-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: bathingScroll 36s linear infinite;
+  padding: 0 var(--space-6);
 }
-.bathing-list .index {
+.bathing-carousel-wrap:hover .bathing-carousel-track { animation-play-state: paused; }
+@keyframes bathingScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-50% - 8px)); }
+}
+.bathing-feat {
+  flex-shrink: 0;
+  width: 320px;
+  background: rgba(250,246,238,0.04);
+  border: 1px solid rgba(250,246,238,0.10);
+  border-radius: 6px;
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: background 0.4s var(--ease-out), border-color 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+}
+.bathing-feat:hover {
+  background: rgba(217,80,26,0.12);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+.bathing-feat .feat-index {
   font-family: var(--serif);
+  font-style: italic;
   font-size: 13px;
-  font-weight: 500;
   color: var(--accent);
   font-feature-settings: "lnum";
+  letter-spacing: 0.04em;
 }
-.bathing-list .item-title {
+.bathing-feat .feat-title {
   font-family: var(--serif);
-  font-size: 19px;
+  font-size: 22px;
   font-weight: 500;
+  line-height: 1.1;
   color: var(--canvas);
-  margin-bottom: 4px;
+  letter-spacing: -0.02em;
 }
-.bathing-list .item-desc {
-  font-size: 14.5px;
-  color: rgba(250,246,238,0.6);
+.bathing-feat .feat-desc {
+  font-size: 14px;
   line-height: 1.55;
+  color: rgba(250,246,238,0.65);
 }
+.bathing-feat.accent {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.bathing-feat.accent .feat-index { color: var(--canvas); opacity: 0.85; }
+.bathing-feat.accent .feat-desc { color: rgba(250,246,238,0.88); }
+.bathing-feat.accent:hover { background: var(--accent-2); transform: translateY(-3px); }
 
 .bathing-visual {
   position: relative;
@@ -1759,21 +1796,16 @@ h1, h2, h3, h4 {
           </div>
         </a>
 
-        <!-- Card 4: image split (banho) -->
-        <a class="service-card style-image size-md" href="#banho">
-          <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="Banho de cachorro" />
+        <!-- Card 4: light (Banho) -->
+        <a class="service-card style-light size-md" href="#banho">
+          <div>
+            <span class="num">No. 03</span>
+            <div class="title">Banho &amp; Tosa</div>
+            <div class="desc">Pacote de 4 banhos por R$ 85. Remarcação flexível e busca em casa.</div>
           </div>
-          <div class="card-body">
-            <div>
-              <span class="num">No. 03</span>
-              <div class="title">Banho &amp; Tosa</div>
-              <div class="desc">Remarcação flexível e busca em casa.</div>
-            </div>
-            <div class="foot">
-              <span class="foot-label">Ver pacote</span>
-              <span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-            </div>
+          <div class="foot">
+            <span class="foot-label">Ver pacote</span>
+            <span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
           </div>
         </a>
 
@@ -1851,18 +1883,13 @@ h1, h2, h3, h4 {
           </div>
           <div><div class="title">Doze anos cuidando dos pets de Dois Vizinhos.</div></div>
         </a>
-        <a class="service-card style-image size-md" href="#banho" aria-hidden="true">
-          <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="" />
+        <a class="service-card style-light size-md" href="#banho" aria-hidden="true">
+          <div>
+            <span class="num">No. 03</span>
+            <div class="title">Banho &amp; Tosa</div>
+            <div class="desc">Pacote de 4 banhos por R$ 85. Remarcação flexível e busca em casa.</div>
           </div>
-          <div class="card-body">
-            <div>
-              <span class="num">No. 03</span>
-              <div class="title">Banho &amp; Tosa</div>
-              <div class="desc">Remarcação flexível e busca em casa.</div>
-            </div>
-            <div class="foot"><span class="foot-label">Ver pacote</span><span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
-          </div>
+          <div class="foot"><span class="foot-label">Ver pacote</span><span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
         </a>
         <a class="service-card style-accent size-md" href="tel:+5546999099437" aria-hidden="true">
           <div>
@@ -1910,38 +1937,7 @@ h1, h2, h3, h4 {
         <h2>Entre <span class="num">100</span> e <span class="num">150</span> banhos por semana. Cada um <span class="italic">do seu jeito</span>.</h2>
         <p class="lede">A maioria das petshops trabalha com agenda fechada — se você não trouxe na data, perdeu. Aqui é diferente. Cuidamos do seu pet com a rotina que <em>você</em> consegue ter, não com a que a gente impõe.</p>
 
-        <ul class="bathing-list">
-          <li>
-            <span class="index">01</span>
-            <div>
-              <div class="item-title">Remanejamento em feriado e imprevisto</div>
-              <div class="item-desc">Caiu num feriado? Choveu? Esqueceu de trazer? Remarcamos pra um dia antes ou depois.</div>
-            </div>
-          </li>
-          <li>
-            <span class="index">02</span>
-            <div>
-              <div class="item-title">Buscamos e entregamos em casa</div>
-              <div class="item-desc">Rotas organizadas em Dois Vizinhos e cidade vizinha. Seu pet vai e volta sem você sair de casa.</div>
-            </div>
-          </li>
-          <li>
-            <span class="index">03</span>
-            <div>
-              <div class="item-title">Sex e sáb a partir das 7h30</div>
-              <div class="item-desc">Pra você buscar o pet antes do almoço de sábado e aproveitar o fim de semana junto.</div>
-            </div>
-          </li>
-          <li>
-            <span class="index">04</span>
-            <div>
-              <div class="item-title">Pacote completo, sem mensalidade</div>
-              <div class="item-desc">Quatro banhos com tosa higiênica inclusa. Pago à vista. Não é assinatura nem cobrança recorrente.</div>
-            </div>
-          </li>
-        </ul>
-
-        <div style="margin-top: var(--space-7); display: flex; gap: 12px; flex-wrap: wrap;">
+        <div style="margin-top: var(--space-6); display: flex; gap: 12px; flex-wrap: wrap;">
           <a class="btn btn-lg" style="background: var(--accent); color: var(--canvas);" href="#" data-wa="banho">
             Agendar banho
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
@@ -1960,6 +1956,74 @@ h1, h2, h3, h4 {
           <div class="tag">Pacote</div>
           <div class="val"><sup>R$</sup>85</div>
           <div class="what">4 banhos com tosa higiênica inclusa. Pago à vista — sem mensalidade.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carrossel de benefícios — full width dentro da seção -->
+    <div class="bathing-carousel-wrap" aria-label="Benefícios do banho e tosa">
+      <div class="bathing-carousel-track">
+        <div class="bathing-feat">
+          <span class="feat-index">01</span>
+          <div class="feat-title">Remanejamento em feriado</div>
+          <div class="feat-desc">Caiu num feriado? Choveu? Esqueceu de trazer? Remarcamos pra um dia antes ou depois.</div>
+        </div>
+        <div class="bathing-feat accent">
+          <span class="feat-index">02</span>
+          <div class="feat-title">Busca e entrega em casa</div>
+          <div class="feat-desc">Rotas organizadas em Dois Vizinhos e cidade vizinha. Seu pet vai e volta sem você sair.</div>
+        </div>
+        <div class="bathing-feat">
+          <span class="feat-index">03</span>
+          <div class="feat-title">Sex e sáb a partir das 7h30</div>
+          <div class="feat-desc">Pra buscar o pet antes do almoço de sábado e aproveitar o fim de semana junto.</div>
+        </div>
+        <div class="bathing-feat accent">
+          <span class="feat-index">04</span>
+          <div class="feat-title">Pacote sem mensalidade</div>
+          <div class="feat-desc">Quatro banhos com tosa higiênica inclusa. Pago à vista. Sem assinatura.</div>
+        </div>
+        <div class="bathing-feat">
+          <span class="feat-index">05</span>
+          <div class="feat-title">100 a 150 pets por semana</div>
+          <div class="feat-desc">Volume alto significa equipe experiente — não é o primeiro banho do seu pet aqui.</div>
+        </div>
+        <div class="bathing-feat accent">
+          <span class="feat-index">06</span>
+          <div class="feat-title">Atendimento personalizado</div>
+          <div class="feat-desc">Adaptamos por porte, raça e temperamento. O Eduardo conhece seu pet pelo nome.</div>
+        </div>
+
+        <!-- duplicata pra loop -->
+        <div class="bathing-feat" aria-hidden="true">
+          <span class="feat-index">01</span>
+          <div class="feat-title">Remanejamento em feriado</div>
+          <div class="feat-desc">Caiu num feriado? Choveu? Esqueceu de trazer? Remarcamos pra um dia antes ou depois.</div>
+        </div>
+        <div class="bathing-feat accent" aria-hidden="true">
+          <span class="feat-index">02</span>
+          <div class="feat-title">Busca e entrega em casa</div>
+          <div class="feat-desc">Rotas organizadas em Dois Vizinhos e cidade vizinha. Seu pet vai e volta sem você sair.</div>
+        </div>
+        <div class="bathing-feat" aria-hidden="true">
+          <span class="feat-index">03</span>
+          <div class="feat-title">Sex e sáb a partir das 7h30</div>
+          <div class="feat-desc">Pra buscar o pet antes do almoço de sábado e aproveitar o fim de semana junto.</div>
+        </div>
+        <div class="bathing-feat accent" aria-hidden="true">
+          <span class="feat-index">04</span>
+          <div class="feat-title">Pacote sem mensalidade</div>
+          <div class="feat-desc">Quatro banhos com tosa higiênica inclusa. Pago à vista. Sem assinatura.</div>
+        </div>
+        <div class="bathing-feat" aria-hidden="true">
+          <span class="feat-index">05</span>
+          <div class="feat-title">100 a 150 pets por semana</div>
+          <div class="feat-desc">Volume alto significa equipe experiente — não é o primeiro banho do seu pet aqui.</div>
+        </div>
+        <div class="bathing-feat accent" aria-hidden="true">
+          <span class="feat-index">06</span>
+          <div class="feat-title">Atendimento personalizado</div>
+          <div class="feat-desc">Adaptamos por porte, raça e temperamento. O Eduardo conhece seu pet pelo nome.</div>
         </div>
       </div>
     </div>
