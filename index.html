@@ -707,131 +707,262 @@ h1, h2, h3, h4 {
   line-height: 1.6;
 }
 
-/* ===== CARROSSEL DE SERVIÇOS ===== */
+/* ===== CARROSSEL DE SERVIÇOS — DINÂMICO ===== */
 .carousel-wrap {
   position: relative;
   margin: 0 calc(-1 * var(--space-6));
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  padding: var(--space-7) 0 var(--space-6);
 }
 .carousel-track {
   display: flex;
-  gap: 24px;
+  gap: 20px;
   width: max-content;
-  animation: carouselScroll 50s linear infinite;
-  padding: var(--space-3) var(--space-6);
+  animation: carouselScroll 32s linear infinite;
+  padding: 0 var(--space-6);
+  align-items: center;
 }
 .carousel-wrap:hover .carousel-track { animation-play-state: paused; }
 @keyframes carouselScroll {
   from { transform: translateX(0); }
-  to   { transform: translateX(calc(-50% - 12px)); }
+  to   { transform: translateX(calc(-50% - 10px)); }
 }
 
 .service-card {
   flex-shrink: 0;
-  width: 360px;
-  height: 320px;
-  background: var(--canvas);
-  border: 1px solid var(--ink-line);
-  border-radius: 6px;
-  padding: var(--space-6) var(--space-5);
+  border-radius: 8px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  text-decoration: none;
-  color: var(--ink);
-  transition: background 0.4s var(--ease-out), border-color 0.4s var(--ease-out), transform 0.4s var(--ease-out);
-  position: relative;
-  overflow: hidden;
 }
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 3px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s var(--ease-out);
-}
-.service-card:hover {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--canvas);
-  transform: translateY(-4px);
-}
-.service-card:hover::before { transform: scaleX(1); }
 
-.service-card .num {
-  font-family: var(--serif);
-  font-size: 13px;
-  font-weight: 500;
+/* Tamanhos variados — assimetria */
+.service-card.size-sm { width: 280px; height: 320px; }
+.service-card.size-md { width: 340px; height: 360px; }
+.service-card.size-lg { width: 380px; height: 400px; }
+
+/* Estilo claro (cream com borda) */
+.service-card.style-light {
+  background: var(--canvas);
+  border: 1px solid var(--ink-line);
+  color: var(--ink);
+  padding: var(--space-6);
+}
+.service-card.style-light .num {
+  font-family: var(--serif); font-size: 13px; font-weight: 500;
+  font-style: italic; color: var(--accent);
+}
+.service-card.style-light .title {
+  font-family: var(--serif); font-weight: 500;
+  letter-spacing: -0.025em; line-height: 1.02;
+  margin-top: var(--space-3);
+  font-size: 28px;
+}
+.service-card.style-light.size-lg .title { font-size: 36px; }
+.service-card.style-light .desc {
+  font-family: var(--sans); font-size: 14px;
+  line-height: 1.55; color: var(--ink-soft);
+  margin-top: var(--space-3);
+}
+
+/* Estilo escuro (ink) */
+.service-card.style-dark {
+  background: var(--ink);
+  color: var(--canvas);
+  padding: var(--space-6);
+}
+.service-card.style-dark .num {
+  font-family: var(--serif); font-size: 13px; font-weight: 500;
+  font-style: italic; color: var(--accent);
+}
+.service-card.style-dark .title {
+  font-family: var(--serif); font-weight: 500;
+  letter-spacing: -0.025em; line-height: 1.02;
+  margin-top: var(--space-3);
+  font-size: 32px;
+}
+.service-card.style-dark.size-lg .title { font-size: 40px; }
+.service-card.style-dark .title em { color: var(--accent); font-style: italic; }
+.service-card.style-dark .desc {
+  font-family: var(--sans); font-size: 14px;
+  line-height: 1.55; color: rgba(250,246,238,0.68);
+  margin-top: var(--space-3);
+}
+
+/* Estilo accent (terracota) */
+.service-card.style-accent {
+  background: var(--accent);
+  color: var(--canvas);
+  padding: var(--space-6);
+}
+.service-card.style-accent .num {
+  font-family: var(--serif); font-size: 13px; font-weight: 500;
+  font-style: italic; color: rgba(250,246,238,0.7);
+}
+.service-card.style-accent .title {
+  font-family: var(--serif); font-weight: 500;
+  letter-spacing: -0.025em; line-height: 1.02;
+  margin-top: var(--space-3);
+  font-size: 32px;
   font-style: italic;
-  color: var(--accent);
-  letter-spacing: 0.04em;
-  font-feature-settings: "lnum";
 }
-.service-card .title {
+.service-card.style-accent .desc {
+  font-family: var(--sans); font-size: 14px;
+  line-height: 1.55; color: rgba(250,246,238,0.85);
+  margin-top: var(--space-3);
+}
+
+/* Estilo número (display gigante) */
+.service-card.style-display {
+  background: var(--canvas-2);
+  border: 1px solid var(--ink-line);
+  color: var(--ink);
+  padding: var(--space-6);
+  justify-content: space-between;
+}
+.service-card.style-display .big-num {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: 120px;
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  color: var(--accent);
+  font-feature-settings: "lnum";
+  font-style: italic;
+}
+.service-card.style-display .label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: var(--space-2);
+}
+.service-card.style-display .title {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: 30px;
-  letter-spacing: -0.025em;
+  font-size: 24px;
+  letter-spacing: -0.02em;
   line-height: 1.05;
+}
+
+/* Estilo image (com foto) */
+.service-card.style-image {
+  padding: 0;
+  background: var(--ink);
+  color: var(--canvas);
+  position: relative;
+}
+.service-card.style-image img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(0.68) saturate(0.9);
+  transition: transform 1s var(--ease-out), filter 0.5s var(--ease-out);
+}
+.service-card.style-image .img-content {
+  position: relative; z-index: 1;
+  padding: var(--space-6);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.service-card.style-image .num {
+  font-family: var(--serif); font-size: 13px; font-weight: 500;
+  font-style: italic; color: var(--accent);
+}
+.service-card.style-image .title {
+  font-family: var(--serif); font-weight: 500;
+  letter-spacing: -0.025em; line-height: 1.02;
+  font-size: 32px;
   margin-top: var(--space-3);
 }
-.service-card:hover .title { font-style: italic; }
-.service-card .desc {
-  font-family: var(--sans);
-  font-size: 14.5px;
-  line-height: 1.55;
-  color: var(--ink-soft);
+.service-card.style-image .desc {
+  font-size: 14px;
+  color: rgba(250,246,238,0.9);
   margin-top: var(--space-3);
-  transition: color 0.4s var(--ease-out);
 }
-.service-card:hover .desc { color: rgba(250,246,238,0.7); }
+
+/* Foot (rodapé) — universal */
 .service-card .foot {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: var(--space-5);
   padding-top: var(--space-4);
-  border-top: 1px solid var(--ink-line);
-  transition: border-color 0.4s var(--ease-out);
+  border-top: 1px solid currentColor;
+  border-top-color: rgba(31,22,17,0.15);
 }
-.service-card:hover .foot { border-top-color: rgba(250,246,238,0.18); }
+.service-card.style-dark .foot,
+.service-card.style-accent .foot,
+.service-card.style-image .foot { border-top-color: rgba(250,246,238,0.2); }
 .service-card .foot-label {
   font-family: var(--sans);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-soft);
-  transition: color 0.4s var(--ease-out);
+  opacity: 0.7;
 }
-.service-card:hover .foot-label { color: var(--canvas); }
 .service-card .foot-arrow {
   width: 36px; height: 36px;
   border-radius: 50%;
-  border: 1px solid var(--ink-line);
+  border: 1px solid currentColor;
   display: grid; place-items: center;
-  transition: background 0.3s var(--ease-out), border-color 0.3s var(--ease-out), transform 0.5s var(--ease-out);
+  opacity: 0.4;
+  transition: opacity 0.3s var(--ease-out), transform 0.5s var(--ease-out), background 0.3s var(--ease-out);
+}
+.service-card .foot-arrow svg { width: 14px; height: 14px; stroke: currentColor; }
+
+/* HOVER — efeito dramático */
+.service-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 24px 60px rgba(31,22,17,0.18);
+  z-index: 2;
 }
 .service-card:hover .foot-arrow {
+  opacity: 1;
+  transform: rotate(-45deg);
   background: var(--accent);
   border-color: var(--accent);
-  transform: rotate(-45deg);
+  color: var(--canvas);
 }
-.service-card .foot-arrow svg { width: 14px; height: 14px; stroke: currentColor; transition: stroke 0.3s var(--ease-out); }
-.service-card:hover .foot-arrow svg { stroke: var(--canvas); }
+.service-card.style-image:hover img {
+  transform: scale(1.08);
+  filter: brightness(0.55) saturate(0.95);
+}
+
+/* Loading animation no border (subtle pulse) */
+.service-card.style-light::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: shimmer 6s ease-in-out infinite;
+}
+.service-card.style-light:nth-of-type(odd)::after { animation-delay: 1.5s; }
+.service-card.style-light:nth-of-type(even)::after { animation-delay: 3s; }
+@keyframes shimmer {
+  0%, 100% { left: -100%; }
+  50% { left: 100%; }
+}
 
 .carousel-hint {
-  margin-top: var(--space-6);
+  margin-top: var(--space-4);
   text-align: center;
   font-family: var(--sans);
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-soft);
   display: inline-flex;
@@ -1270,8 +1401,10 @@ h1, h2, h3, h4 {
   .footer-top { grid-template-columns: 1fr 1fr; gap: var(--space-7); }
   .nav-links > a { display: none; }
   .bathing-price { right: 16px; top: 5%; }
-  .service-card { width: 320px; height: 300px; }
-  .service-card .title { font-size: 26px; }
+  .service-card.size-sm { width: 260px; height: 300px; }
+  .service-card.size-md { width: 300px; height: 340px; }
+  .service-card.size-lg { width: 340px; height: 380px; }
+  .service-card.style-display .big-num { font-size: 96px; }
 }
 
 @media (max-width: 720px) {
@@ -1293,11 +1426,15 @@ h1, h2, h3, h4 {
   .brand-text { display: none; }
   .nav-cta .btn { padding: 9px 14px; font-size: 12.5px; }
   .marquee-track { font-size: 17px; gap: var(--space-6); }
-  .carousel-wrap { margin: 0 calc(-1 * var(--space-5)); }
-  .carousel-track { padding: var(--space-3) var(--space-5); gap: 16px; }
-  .service-card { width: 280px; height: 280px; padding: var(--space-5) var(--space-4); }
-  .service-card .title { font-size: 22px; }
-  .service-card .desc { font-size: 13.5px; }
+  .carousel-wrap { margin: 0 calc(-1 * var(--space-5)); padding: var(--space-5) 0; }
+  .carousel-track { padding: 0 var(--space-5); gap: 14px; }
+  .service-card.size-sm { width: 240px; height: 280px; }
+  .service-card.size-md { width: 270px; height: 310px; }
+  .service-card.size-lg { width: 290px; height: 340px; }
+  .service-card.style-light, .service-card.style-dark, .service-card.style-accent, .service-card.style-display { padding: var(--space-5) var(--space-4); }
+  .service-card .title { font-size: 22px !important; }
+  .service-card.style-display .big-num { font-size: 80px; }
+  .service-card .desc { font-size: 13px; }
   .location-row dd { font-size: 18px; }
 }
 
@@ -1526,12 +1663,13 @@ h1, h2, h3, h4 {
 
     <div class="carousel-wrap" aria-label="Serviços oferecidos">
       <div class="carousel-track" id="carouselTrack">
-        <!-- Grupo 1 -->
-        <a class="service-card" href="#" data-wa="serv-consulta">
+
+        <!-- Card 1: estilo light, size md -->
+        <a class="service-card style-light size-md" href="#" data-wa="serv-consulta">
           <div>
             <span class="num">No. 01</span>
             <div class="title">Consulta clínica</div>
-            <div class="desc">Atendimento de rotina, diagnóstico e acompanhamento contínuo para cães e gatos. Equipe veterinária dedicada.</div>
+            <div class="desc">Atendimento de rotina, diagnóstico e acompanhamento contínuo para cães e gatos.</div>
           </div>
           <div class="foot">
             <span class="foot-label">Agendar</span>
@@ -1539,10 +1677,11 @@ h1, h2, h3, h4 {
           </div>
         </a>
 
-        <a class="service-card" href="#" data-wa="serv-cirurgia">
+        <!-- Card 2: dark, size lg -->
+        <a class="service-card style-dark size-lg" href="#" data-wa="serv-cirurgia">
           <div>
             <span class="num">No. 02</span>
-            <div class="title">Cirurgia geral &amp; especializada</div>
+            <div class="title">Cirurgia <em>geral</em> &amp; especializada</div>
             <div class="desc">Procedimentos gerais com a equipe da casa. Ortopedia e endoscopia com profissionais parceiros.</div>
           </div>
           <div class="foot">
@@ -1551,11 +1690,54 @@ h1, h2, h3, h4 {
           </div>
         </a>
 
-        <a class="service-card" href="#" data-wa="serv-imagem">
+        <!-- Card 3: display gigante (12 anos) -->
+        <a class="service-card style-display size-sm" href="#sobre">
           <div>
-            <span class="num">No. 03</span>
+            <div class="label">Desde 2014</div>
+            <div class="big-num">12</div>
+          </div>
+          <div>
+            <div class="title">Doze anos cuidando dos pets de Dois Vizinhos.</div>
+          </div>
+        </a>
+
+        <!-- Card 4: image (banho) -->
+        <a class="service-card style-image size-md" href="#banho">
+          <img src="https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?auto=format&fit=crop&w=600&q=80" alt="Banho de cachorro" />
+          <div class="img-content">
+            <div>
+              <span class="num">No. 03</span>
+              <div class="title">Banho &amp; Tosa</div>
+            </div>
+            <div>
+              <div class="desc">Pacotes com remarcação flexível e busca e entrega em casa.</div>
+              <div class="foot">
+                <span class="foot-label">Ver pacote</span>
+                <span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 5: accent (plantão) -->
+        <a class="service-card style-accent size-md" href="tel:+5546999099437">
+          <div>
+            <span class="num">Plantão</span>
+            <div class="title">24 horas, todos os dias</div>
+            <div class="desc">Atendimento de emergência via sobreaviso. Você liga, a veterinária vem.</div>
+          </div>
+          <div class="foot">
+            <span class="foot-label">Ligar agora</span>
+            <span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          </div>
+        </a>
+
+        <!-- Card 6: light, size md -->
+        <a class="service-card style-light size-md" href="#" data-wa="serv-imagem">
+          <div>
+            <span class="num">No. 04</span>
             <div class="title">Exames de imagem</div>
-            <div class="desc">Raio-X, eletrocardiograma, ecocardiograma e ultrassom. Diagnóstico no local, sem deslocar o pet.</div>
+            <div class="desc">Raio-X, ecocardiograma, eletrocardiograma e ultrassom. Diagnóstico no local.</div>
           </div>
           <div class="foot">
             <span class="foot-label">Marcar exame</span>
@@ -1563,11 +1745,23 @@ h1, h2, h3, h4 {
           </div>
         </a>
 
-        <a class="service-card" href="#" data-wa="serv-internacao">
+        <!-- Card 7: display gigante (150 banhos) -->
+        <a class="service-card style-display size-sm" href="#banho">
           <div>
-            <span class="num">No. 04</span>
-            <div class="title">Internação</div>
-            <div class="desc">Estrutura própria com câmera de monitoramento. Acompanhamento veterinário 24 horas.</div>
+            <div class="label">Por semana</div>
+            <div class="big-num">150</div>
+          </div>
+          <div>
+            <div class="title">Pets passando por aqui pra banho e tosa.</div>
+          </div>
+        </a>
+
+        <!-- Card 8: dark, size md -->
+        <a class="service-card style-dark size-md" href="#" data-wa="serv-internacao">
+          <div>
+            <span class="num">No. 05</span>
+            <div class="title">Internação <em>com monitoramento</em></div>
+            <div class="desc">Estrutura própria com câmera 24h. Acompanhamento veterinário contínuo.</div>
           </div>
           <div class="foot">
             <span class="foot-label">Conversar</span>
@@ -1575,82 +1769,77 @@ h1, h2, h3, h4 {
           </div>
         </a>
 
-        <a class="service-card" href="#banho">
-          <div>
-            <span class="num">No. 05</span>
-            <div class="title">Banho &amp; Tosa</div>
-            <div class="desc">Pacotes com remarcação flexível e serviço de busca e entrega em casa. Atendemos Dois Vizinhos e região.</div>
-          </div>
-          <div class="foot">
-            <span class="foot-label">Ver pacote</span>
-            <span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-          </div>
-        </a>
-
-        <a class="service-card" href="tel:+5546999099437">
-          <div>
-            <span class="num">No. 06</span>
-            <div class="title">Plantão 24 horas</div>
-            <div class="desc">Atendimento de emergência via sobreaviso. Você liga, a veterinária vem até a clínica atender.</div>
-          </div>
-          <div class="foot">
-            <span class="foot-label">Ligar agora</span>
-            <span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-          </div>
-        </a>
-
-        <!-- Grupo 2 (duplicado para loop infinito) -->
-        <a class="service-card" href="#" data-wa="serv-consulta" aria-hidden="true">
+        <!-- ========== DUPLICATA pra loop infinito ========== -->
+        <a class="service-card style-light size-md" href="#" data-wa="serv-consulta" aria-hidden="true">
           <div>
             <span class="num">No. 01</span>
             <div class="title">Consulta clínica</div>
-            <div class="desc">Atendimento de rotina, diagnóstico e acompanhamento contínuo para cães e gatos. Equipe veterinária dedicada.</div>
+            <div class="desc">Atendimento de rotina, diagnóstico e acompanhamento contínuo para cães e gatos.</div>
           </div>
           <div class="foot"><span class="foot-label">Agendar</span><span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
         </a>
-        <a class="service-card" href="#" data-wa="serv-cirurgia" aria-hidden="true">
+        <a class="service-card style-dark size-lg" href="#" data-wa="serv-cirurgia" aria-hidden="true">
           <div>
             <span class="num">No. 02</span>
-            <div class="title">Cirurgia geral &amp; especializada</div>
+            <div class="title">Cirurgia <em>geral</em> &amp; especializada</div>
             <div class="desc">Procedimentos gerais com a equipe da casa. Ortopedia e endoscopia com profissionais parceiros.</div>
           </div>
           <div class="foot"><span class="foot-label">Saiba mais</span><span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
         </a>
-        <a class="service-card" href="#" data-wa="serv-imagem" aria-hidden="true">
+        <a class="service-card style-display size-sm" href="#sobre" aria-hidden="true">
           <div>
-            <span class="num">No. 03</span>
+            <div class="label">Desde 2014</div>
+            <div class="big-num">12</div>
+          </div>
+          <div><div class="title">Doze anos cuidando dos pets de Dois Vizinhos.</div></div>
+        </a>
+        <a class="service-card style-image size-md" href="#banho" aria-hidden="true">
+          <img src="https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?auto=format&fit=crop&w=600&q=80" alt="" />
+          <div class="img-content">
+            <div>
+              <span class="num">No. 03</span>
+              <div class="title">Banho &amp; Tosa</div>
+            </div>
+            <div>
+              <div class="desc">Pacotes com remarcação flexível e busca e entrega em casa.</div>
+              <div class="foot"><span class="foot-label">Ver pacote</span><span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
+            </div>
+          </div>
+        </a>
+        <a class="service-card style-accent size-md" href="tel:+5546999099437" aria-hidden="true">
+          <div>
+            <span class="num">Plantão</span>
+            <div class="title">24 horas, todos os dias</div>
+            <div class="desc">Atendimento de emergência via sobreaviso. Você liga, a veterinária vem.</div>
+          </div>
+          <div class="foot"><span class="foot-label">Ligar agora</span><span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span></div>
+        </a>
+        <a class="service-card style-light size-md" href="#" data-wa="serv-imagem" aria-hidden="true">
+          <div>
+            <span class="num">No. 04</span>
             <div class="title">Exames de imagem</div>
-            <div class="desc">Raio-X, eletrocardiograma, ecocardiograma e ultrassom. Diagnóstico no local, sem deslocar o pet.</div>
+            <div class="desc">Raio-X, ecocardiograma, eletrocardiograma e ultrassom. Diagnóstico no local.</div>
           </div>
           <div class="foot"><span class="foot-label">Marcar exame</span><span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
         </a>
-        <a class="service-card" href="#" data-wa="serv-internacao" aria-hidden="true">
+        <a class="service-card style-display size-sm" href="#banho" aria-hidden="true">
           <div>
-            <span class="num">No. 04</span>
-            <div class="title">Internação</div>
-            <div class="desc">Estrutura própria com câmera de monitoramento. Acompanhamento veterinário 24 horas.</div>
+            <div class="label">Por semana</div>
+            <div class="big-num">150</div>
+          </div>
+          <div><div class="title">Pets passando por aqui pra banho e tosa.</div></div>
+        </a>
+        <a class="service-card style-dark size-md" href="#" data-wa="serv-internacao" aria-hidden="true">
+          <div>
+            <span class="num">No. 05</span>
+            <div class="title">Internação <em>com monitoramento</em></div>
+            <div class="desc">Estrutura própria com câmera 24h. Acompanhamento veterinário contínuo.</div>
           </div>
           <div class="foot"><span class="foot-label">Conversar</span><span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
         </a>
-        <a class="service-card" href="#banho" aria-hidden="true">
-          <div>
-            <span class="num">No. 05</span>
-            <div class="title">Banho &amp; Tosa</div>
-            <div class="desc">Pacotes com remarcação flexível e serviço de busca e entrega em casa. Atendemos Dois Vizinhos e região.</div>
-          </div>
-          <div class="foot"><span class="foot-label">Ver pacote</span><span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
-        </a>
-        <a class="service-card" href="tel:+5546999099437" aria-hidden="true">
-          <div>
-            <span class="num">No. 06</span>
-            <div class="title">Plantão 24 horas</div>
-            <div class="desc">Atendimento de emergência via sobreaviso. Você liga, a veterinária vem até a clínica atender.</div>
-          </div>
-          <div class="foot"><span class="foot-label">Ligar agora</span><span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
-        </a>
       </div>
     </div>
-    <div class="carousel-hint">Passe o mouse para pausar · arraste para navegar</div>
+    <div class="carousel-hint">Passe o mouse para pausar</div>
   </div>
 </section>
 
