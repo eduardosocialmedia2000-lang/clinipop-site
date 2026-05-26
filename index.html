@@ -1647,6 +1647,14 @@ h1, h2, h3, h4 {
 .reveal-delay-2 { transition-delay: 0.16s; }
 .reveal-delay-3 { transition-delay: 0.24s; }
 
+/* GARANTIA: carrosséis nunca podem ficar invisíveis */
+.carousel-wrap,
+.bathing-carousel-wrap,
+.carousel-hint {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 /* ===== HOVER IMAGE PARALLAX ===== */
 .intro-image, .hero-image, .bathing-visual .img-main {
   overflow: hidden;
@@ -2340,8 +2348,6 @@ h1, h2, h3, h4 {
     const targets = [
       '.intro-text', '.intro-image', '.intro-stats',
       '.services-header > div', '.services-header > p',
-      '.carousel-wrap', '.carousel-hint',
-      '.bathing-grid > *', '.bathing-list li',
       '.emergency-grid > *',
       '.location-info', '.map-wrap'
     ];
