@@ -317,38 +317,46 @@ h1, h2, h3, h4 {
 }
 .hero h1 .line { display: block; }
 .hero h1 .rotator {
-  display: inline-block;
   position: relative;
-  vertical-align: bottom;
-  height: 1em;
+  display: inline-block;
+  vertical-align: top;
   overflow: hidden;
-  min-width: 4.5ch;
+  line-height: 1.15;
 }
-.hero h1 .rotator span {
+.hero h1 .rotator-ghost {
+  display: inline-block;
+  visibility: hidden;
+  pointer-events: none;
+  font-style: italic;
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 0 0.05em;
+}
+.hero h1 .rotator-word {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 0 0.05em;
   font-style: italic;
   font-weight: 700;
   color: var(--accent);
-  opacity: 0;
-  transform: translateY(100%);
-  animation: rotateWord 14s infinite;
   white-space: nowrap;
+  transform: translateY(110%);
+  opacity: 0;
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  will-change: transform, opacity;
 }
-.hero h1 .rotator span:nth-child(1) { animation-delay: 0s; }
-.hero h1 .rotator span:nth-child(2) { animation-delay: 3.5s; }
-.hero h1 .rotator span:nth-child(3) { animation-delay: 7s; }
-.hero h1 .rotator span:nth-child(4) { animation-delay: 10.5s; }
+.hero h1 .rotator-word.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+.hero h1 .rotator-word.exit {
+  transform: translateY(-110%);
+  opacity: 0;
+}
 .hero h1 .italic {
   font-style: italic;
   font-weight: 700;
-}
-
-@keyframes rotateWord {
-  0%, 2%   { opacity: 0; transform: translateY(100%); }
-  6%, 22%  { opacity: 1; transform: translateY(0); }
-  26%, 100%{ opacity: 0; transform: translateY(-100%); }
 }
 
 .hero-lede {
@@ -1370,9 +1378,8 @@ h1, h2, h3, h4 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero h1 .rotator span { animation: none; opacity: 0; }
-  .hero h1 .rotator span:first-child { opacity: 1; transform: none; }
-  /* Mantém carrosséis rodando — só desliga rotation do hero */
+  .hero h1 .rotator-word { transition: opacity 0.3s ease; }
+  /* Mantém carrosséis rodando — só desliga movimento do hero */
 }
 </style>
 </head>
@@ -1421,10 +1428,11 @@ h1, h2, h3, h4 {
           <span class="line">Cuidamos do</span>
           <span class="line">seu
             <span class="rotator" aria-label="pet">
-              <span>cachorro</span>
-              <span>gato</span>
-              <span>amigo</span>
-              <span>pet</span>
+              <span class="rotator-ghost">cachorro</span>
+              <span class="rotator-word active" data-i="0">cachorro</span>
+              <span class="rotator-word" data-i="1">gato</span>
+              <span class="rotator-word" data-i="2">amigo</span>
+              <span class="rotator-word" data-i="3">pet</span>
             </span>
           </span>
           <span class="line italic">como família.</span>
@@ -1993,6 +2001,36 @@ h1, h2, h3, h4 {
 
   // ============ Footer year ============
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ============ Hero word rotator (estilo Tommy Jepsen) ============
+  const words = document.querySelectorAll('.rotator-word');
+  const ghost = document.querySelector('.rotator-ghost');
+  const titles = ['cachorro', 'gato', 'amigo', 'pet'];
+  let current = 0;
+
+  // Garante que o ghost sempre tem a palavra mais longa
+  ghost.textContent = 'cachorro';
+
+  function rotate() {
+    const prev = current;
+    current = (current + 1) % words.length;
+
+    // Atualiza ghost pra palavra ATUAL (assim o container redimensiona suavemente)
+    ghost.textContent = titles[current];
+
+    // Reset todas
+    words.forEach((w, i) => {
+      w.classList.remove('active', 'exit');
+      if (i === current) {
+        w.classList.add('active');
+      } else if (i === prev) {
+        w.classList.add('exit');
+      }
+    });
+  }
+
+  // Inicia ciclo após 2.5s
+  setInterval(rotate, 2500);
 })();
 </script>
 
