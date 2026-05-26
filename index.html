@@ -749,6 +749,9 @@ h1, h2, h3, h4 {
 .service-card.size-md { width: 340px; height: 360px; }
 .service-card.size-lg { width: 380px; height: 400px; }
 
+/* Card image precisa de mais largura pra texto não vazar */
+.service-card.style-image.size-md { width: 400px; height: 400px; }
+
 /* Estilo claro (cream com borda) */
 .service-card.style-light {
   background: var(--canvas);
@@ -898,8 +901,13 @@ h1, h2, h3, h4 {
 }
 .service-card.style-image .desc {
   font-size: 14px;
-  color: rgba(250,246,238,0.9);
+  line-height: 1.45;
+  color: rgba(250,246,238,0.92);
   margin-top: var(--space-3);
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 /* Foot (rodapé) — universal */
@@ -1469,6 +1477,7 @@ h1, h2, h3, h4 {
   .service-card.size-sm { width: 240px; height: 280px; }
   .service-card.size-md { width: 270px; height: 320px; }
   .service-card.size-lg { width: 290px; height: 340px; }
+  .service-card.style-image.size-md { width: 300px; height: 360px; }
   .service-card.style-light,
   .service-card.style-dark,
   .service-card.style-accent,
@@ -1754,7 +1763,7 @@ h1, h2, h3, h4 {
               <div class="title">Banho &amp; Tosa</div>
             </div>
             <div>
-              <div class="desc">Pacotes com remarcação flexível e busca e entrega em casa.</div>
+              <div class="desc">Remarcação flexível. Busca e entrega em casa.</div>
               <div class="foot">
                 <span class="foot-label">Ver pacote</span>
                 <span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
@@ -1845,7 +1854,7 @@ h1, h2, h3, h4 {
               <div class="title">Banho &amp; Tosa</div>
             </div>
             <div>
-              <div class="desc">Pacotes com remarcação flexível e busca e entrega em casa.</div>
+              <div class="desc">Remarcação flexível. Busca e entrega em casa.</div>
               <div class="foot"><span class="foot-label">Ver pacote</span><span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
             </div>
           </div>
