@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Clinipop · Clínica veterinária em Dois Vizinhos/PR há 12 anos. Atendimento clínico, cirurgias, exames, banho e tosa com busca e entrega. Plantão veterinário 24h." />
+<meta name="theme-color" content="#F26622" />
+<title>Clinipop · Clínica Veterinária em Dois Vizinhos/PR · Plantão 24h</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23F26622'/%3E%3Ctext x='50' y='66' text-anchor='middle' font-family='Georgia,serif' font-size='52' font-weight='900' fill='%23fff'%3EC%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ============ OPEN GRAPH ============ -->
+<meta property="og:title" content="Clinipop · Clínica Veterinária em Dois Vizinhos" />
+<meta property="og:description" content="12 anos cuidando do seu pet. Clínica, cirurgia, exames e banho e tosa em Dois Vizinhos/PR. Plantão veterinário 24h." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
+
+<!-- ============ SCHEMA.ORG ============ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VeterinaryCare",
+  "name": "Clinipop",
+  "description": "Clínica veterinária em Dois Vizinhos/PR há mais de 12 anos. Atendimento clínico, cirurgias, exames de imagem, banho e tosa.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua do Comércio, 817",
+    "addressLocality": "Dois Vizinhos",
+    "addressRegion": "PR",
+    "postalCode": "85660-000",
+    "addressCountry": "BR"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "07:30", "closes": "12:00" }
+  ],
+  "image": "",
+  "telephone": "",
+  "areaServed": "Dois Vizinhos e região, PR"
+}
+</script>
+
+<style>
+  :root {
+    --orange:        #F26622;
+    --orange-deep:   #D9501A;
+    --orange-soft:   #FFE4D2;
+    --teal:          #2EC4B6;
+    --teal-deep:     #1E9A8E;
+    --teal-soft:     #D8F4F1;
+    --yellow:        #FFD23F;
+    --cream:         #FFF6EC;
+    --cream-2:       #FBEBD7;
+    --ink:           #2A1E12;
+    --ink-soft:      #5C4A38;
+    --line:          rgba(42,30,18,.12);
+    --shadow-sm:     0 2px 6px rgba(42,30,18,.06);
+    --shadow-md:     0 10px 30px rgba(217,80,26,.14);
+    --shadow-lg:     0 20px 60px rgba(217,80,26,.20);
+    --radius-lg:     28px;
+    --radius-md:     18px;
+    --radius-sm:     12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  /* ============ TOPBAR ============ */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,246,236,0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar-inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .brand-mark {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: conic-gradient(from 220deg, var(--orange), var(--yellow), var(--teal), var(--orange));
+    display: grid; place-items: center;
+    color: #fff; font-family: 'Fraunces', serif;
+    font-weight: 900; font-size: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  .brand-text {
+    display: flex; flex-direction: column; line-height: 1.1;
+  }
+  .brand-text strong {
+    font-family: 'Fraunces', serif;
+    font-size: 22px; font-weight: 900;
+    color: var(--ink); letter-spacing: -0.02em;
+  }
+  .brand-text small {
+    font-size: 11px; color: var(--ink-soft); font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .topnav { display: flex; gap: 4px; align-items: center; }
+  .topnav a {
+    font-size: 14px; padding: 8px 14px;
+    border-radius: 999px; color: var(--ink-soft);
+    text-decoration: none; font-weight: 500;
+    transition: background .2s, color .2s;
+  }
+  .topnav a:hover { background: var(--orange-soft); color: var(--orange-deep); }
+  .topnav .btn-cta {
+    background: var(--orange); color: #fff;
+    padding: 10px 18px; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 8px;
+    box-shadow: var(--shadow-sm);
+    transition: background .2s, transform .2s;
+  }
+  .topnav .btn-cta:hover { background: var(--orange-deep); transform: translateY(-1px); }
+
+  /* ============ HERO ============ */
+  .hero {
+    position: relative; padding: 64px 24px 80px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  }
+  .blob {
+    position: absolute; border-radius: 50%;
+    filter: blur(70px); opacity: .5;
+  }
+  .blob-1 { width: 420px; height: 420px; background: var(--orange); top: -150px; right: -120px; }
+  .blob-2 { width: 320px; height: 320px; background: var(--teal); bottom: -120px; left: -80px; opacity: .3; }
+
+  .hero-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px;
+    align-items: center; position: relative; z-index: 1;
+  }
+  .hero-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #fff; border: 1px solid var(--line);
+    padding: 7px 16px 7px 8px; border-radius: 999px;
+    font-size: 13.5px; font-weight: 600; color: var(--ink-soft);
+    box-shadow: var(--shadow-sm); margin-bottom: 24px;
+  }
+  .hero-pill-dot {
+    width: 9px; height: 9px; border-radius: 50%; background: var(--teal);
+    box-shadow: 0 0 0 4px rgba(46,196,182,.18);
+  }
+  .hero h1 {
+    font-size: clamp(38px, 5.4vw, 64px);
+    margin-bottom: 22px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    background: linear-gradient(120deg, var(--orange), var(--orange-deep));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero p.lead {
+    font-size: 19px; color: var(--ink-soft);
+    margin-bottom: 32px; max-width: 560px;
+  }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 24px; border-radius: 999px;
+    font-weight: 700; font-size: 15px;
+    text-decoration: none; cursor: pointer; border: none;
+    transition: transform .2s, box-shadow .2s, background .2s;
+  }
+  .btn-primary {
+    background: var(--orange); color: #fff;
+    box-shadow: var(--shadow-md);
+  }
+  .btn-primary:hover { background: var(--orange-deep); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .btn-ghost {
+    background: #fff; color: var(--ink);
+    border: 1.5px solid var(--line);
+  }
+  .btn-ghost:hover { border-color: var(--orange); color: var(--orange-deep); }
+
+  .hero-card {
+    background: #fff; border-radius: var(--radius-lg);
+    padding: 30px; box-shadow: var(--shadow-md);
+    border: 1px solid var(--line);
+    position: relative; overflow: hidden;
+  }
+  .hero-card::before {
+    content: ''; position: absolute; top: -60px; right: -60px;
+    width: 160px; height: 160px; border-radius: 50%;
+    background: var(--yellow); opacity: .25;
+  }
+  .hero-card h3 {
+    font-family: 'Inter', sans-serif; font-weight: 700;
+    font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--orange-deep);
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .hero-card h3::before { content: ''; width: 20px; height: 2px; background: var(--orange); }
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .stat {
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+  }
+  .stat:nth-child(-n+2) { border-top: none; padding-top: 0; }
+  .stat strong {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-weight: 900; font-size: 32px;
+    color: var(--orange-deep); line-height: 1; margin-bottom: 4px;
+  }
+  .stat span { font-size: 13px; color: var(--ink-soft); }
+
+  /* ============ STRIP ============ */
+  .strip {
+    background: var(--ink); color: #fff;
+    padding: 22px 24px;
+  }
+  .strip-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; gap: 36px;
+    justify-content: space-around; align-items: center;
+  }
+  .strip-item {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 14px; font-weight: 500;
+    color: rgba(255,255,255,0.85);
+  }
+  .strip-item svg {
+    width: 22px; height: 22px; color: var(--yellow); flex-shrink: 0;
+  }
+  .strip-item strong { color: #fff; font-weight: 700; }
+
+  /* ============ SECTIONS ============ */
+  section.block { padding: 80px 24px; }
+  .section-head {
+    text-align: center; margin-bottom: 48px;
+    max-width: 720px; margin-left: auto; margin-right: auto;
+  }
+  .section-head .eyebrow {
+    display: inline-block;
+    background: var(--teal-soft); color: var(--teal-deep);
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 999px;
+    margin-bottom: 16px;
+  }
+  .section-head h2 {
+    font-size: clamp(30px, 4vw, 44px);
+    margin-bottom: 14px;
+  }
+  .section-head h2 em {
+    font-style: italic; color: var(--orange-deep);
+  }
+  .section-head p {
+    font-size: 17px; color: var(--ink-soft);
+  }
+
+  /* ============ SERVIÇOS ============ */
+  .servicos {
+    background: linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%);
+  }
+  .servicos-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  }
+  .servico-card {
+    background: #fff; border-radius: var(--radius-md);
+    padding: 28px; border: 1px solid var(--line);
+    box-shadow: var(--shadow-sm);
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+    position: relative; overflow: hidden;
+  }
+  .servico-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--orange);
+  }
+  .servico-icone {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: var(--orange-soft); color: var(--orange-deep);
+    display: grid; place-items: center;
+    margin-bottom: 18px;
+    transition: background .25s, color .25s;
+  }
+  .servico-card:hover .servico-icone {
+    background: var(--orange); color: #fff;
+  }
+  .servico-icone svg { width: 26px; height: 26px; }
+  .servico-card h3 { font-size: 19px; margin-bottom: 10px; }
+  .servico-card p { font-size: 14.5px; color: var(--ink-soft); }
+  .servico-card .badge-novo {
+    position: absolute; top: 16px; right: 16px;
+    background: var(--yellow); color: var(--ink);
+    font-size: 10px; font-weight: 800;
+    padding: 3px 8px; border-radius: 999px;
+    text-transform: uppercase; letter-spacing: 0.05em;
+  }
+
+  /* ============ BANHO E TOSA DESTAQUE ============ */
+  .banho-tosa {
+    background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal) 100%);
+    color: #fff; position: relative; overflow: hidden;
+  }
+  .banho-tosa::before {
+    content: ''; position: absolute; top: -100px; right: -100px;
+    width: 360px; height: 360px; border-radius: 50%;
+    background: var(--yellow); opacity: .14;
+  }
+  .banho-tosa::after {
+    content: ''; position: absolute; bottom: -80px; left: -60px;
+    width: 240px; height: 240px; border-radius: 50%;
+    background: var(--orange); opacity: .18;
+  }
+  .banho-tosa .container { position: relative; z-index: 1; }
+  .banho-tosa-inner {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center;
+  }
+  .banho-tosa h2 {
+    color: #fff; font-size: clamp(28px, 3.8vw, 42px);
+    margin-bottom: 16px;
+  }
+  .banho-tosa h2 em {
+    font-style: italic; color: var(--yellow);
+  }
+  .banho-tosa p.lead {
+    font-size: 17px; opacity: .92; margin-bottom: 26px;
+  }
+  .bt-features {
+    display: grid; grid-template-columns: 1fr; gap: 12px;
+    margin-bottom: 28px;
+  }
+  .bt-feature {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: rgba(255,255,255,0.08);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+  }
+  .bt-feature .ico {
+    flex-shrink: 0; width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--yellow); color: var(--ink);
+    display: grid; place-items: center;
+    font-weight: 900; font-size: 14px;
+  }
+  .bt-feature span { font-size: 14.5px; }
+  .bt-feature strong { color: var(--yellow); }
+
+  .pacote-card {
+    background: #fff; color: var(--ink);
+    border-radius: var(--radius-lg);
+    padding: 36px; box-shadow: var(--shadow-lg);
+    text-align: center; position: relative;
+  }
+  .pacote-card .ribbon {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--orange); color: #fff;
+    font-size: 11px; font-weight: 800;
+    padding: 6px 16px; border-radius: 999px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    box-shadow: var(--shadow-sm);
+  }
+  .pacote-card h3 {
+    font-size: 22px; margin: 12px 0 4px;
+  }
+  .pacote-card .sub { color: var(--ink-soft); font-size: 14px; margin-bottom: 24px; }
+  .pacote-preco {
+    font-family: 'Fraunces', serif;
+    font-weight: 900; font-size: 66px;
+    line-height: 1;
+    background: linear-gradient(120deg, var(--orange), var(--orange-deep));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    margin-bottom: 4px;
+  }
+  .pacote-preco .moeda {
+    font-size: 26px; vertical-align: top; margin-right: 4px;
+    -webkit-text-fill-color: var(--orange-deep);
+  }
+  .pacote-card .moeda-row { color: var(--ink-soft); font-size: 13px; margin-bottom: 20px; }
+  .pacote-card ul {
+    list-style: none; text-align: left;
+    margin-bottom: 24px;
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+  }
+  .pacote-card li {
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 14.5px; color: var(--ink-soft);
+    padding: 6px 0;
+  }
+  .pacote-card li::before {
+    content: '✓'; color: var(--teal-deep); font-weight: 900; flex-shrink: 0;
+  }
+
+  /* ============ DIFERENCIAIS ============ */
+  .diferenciais { background: #fff; }
+  .dif-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  }
+  .dif-card {
+    background: var(--cream);
+    border-radius: var(--radius-md);
+    padding: 26px; border: 1px solid var(--line);
+    transition: transform .25s, box-shadow .25s;
+  }
+  .dif-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .dif-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 900; font-size: 42px;
+    color: var(--orange); line-height: 1;
+    margin-bottom: 12px; opacity: .8;
+  }
+  .dif-card h3 { font-size: 18px; margin-bottom: 8px; }
+  .dif-card p { font-size: 14px; color: var(--ink-soft); }
+
+  /* ============ EMERGÊNCIA 24H ============ */
+  .emergencia {
+    background: var(--ink); color: #fff;
+    position: relative; overflow: hidden;
+  }
+  .emergencia::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at top right, rgba(242,102,34,0.25), transparent 60%);
+  }
+  .emergencia .container { position: relative; z-index: 1; }
+  .em-inner {
+    display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
+  }
+  .em-content .eyebrow {
+    background: var(--orange); color: #fff;
+  }
+  .emergencia h2 { color: #fff; font-size: clamp(28px, 3.6vw, 40px); }
+  .emergencia h2 em { color: var(--orange); font-style: italic; }
+  .emergencia p { color: rgba(255,255,255,0.85); font-size: 16px; margin-top: 12px; max-width: 540px; }
+  .em-btn {
+    background: var(--orange); color: #fff;
+    padding: 20px 32px; border-radius: 999px;
+    font-weight: 800; font-size: 16px;
+    display: inline-flex; align-items: center; gap: 12px;
+    text-decoration: none;
+    box-shadow: 0 0 0 0 rgba(242,102,34,0.6);
+    animation: pulseOrange 2s ease-out infinite;
+    white-space: nowrap;
+  }
+  @keyframes pulseOrange {
+    0% { box-shadow: 0 0 0 0 rgba(242,102,34,0.5); }
+    70% { box-shadow: 0 0 0 18px rgba(242,102,34,0); }
+    100% { box-shadow: 0 0 0 0 rgba(242,102,34,0); }
+  }
+
+  /* ============ LOCALIZAÇÃO ============ */
+  .local { background: var(--cream-2); }
+  .local-inner {
+    display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: stretch;
+  }
+  .local-info {
+    background: #fff; border-radius: var(--radius-lg);
+    padding: 36px; border: 1px solid var(--line);
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .local-row {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .local-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .local-row .ico {
+    flex-shrink: 0; width: 42px; height: 42px;
+    border-radius: 12px; background: var(--orange-soft);
+    color: var(--orange-deep);
+    display: grid; place-items: center;
+  }
+  .local-row .ico svg { width: 22px; height: 22px; }
+  .local-row .txt strong {
+    display: block; font-family: 'Fraunces', serif;
+    font-weight: 700; font-size: 17px; margin-bottom: 4px; color: var(--ink);
+  }
+  .local-row .txt span { font-size: 14.5px; color: var(--ink-soft); line-height: 1.55; }
+  .local-row .txt a { color: var(--orange-deep); text-decoration: underline; }
+
+  .map-wrap {
+    background: var(--ink); border-radius: var(--radius-lg);
+    overflow: hidden; min-height: 380px;
+    border: 1px solid var(--line);
+    position: relative;
+  }
+  .map-wrap iframe { width: 100%; height: 100%; min-height: 380px; border: 0; display: block; }
+
+  /* ============ CTA FINAL ============ */
+  .cta-final {
+    background: linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 100%);
+    color: #fff; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-final::before {
+    content: ''; position: absolute; top: -100px; right: 10%;
+    width: 280px; height: 280px; border-radius: 50%;
+    background: var(--yellow); opacity: .18;
+  }
+  .cta-final::after {
+    content: ''; position: absolute; bottom: -120px; left: 5%;
+    width: 320px; height: 320px; border-radius: 50%;
+    background: var(--teal); opacity: .25;
+  }
+  .cta-final .container { position: relative; z-index: 1; }
+  .cta-final h2 {
+    color: #fff; font-size: clamp(30px, 4vw, 48px);
+    margin-bottom: 16px;
+  }
+  .cta-final h2 em { color: var(--yellow); font-style: italic; }
+  .cta-final p { font-size: 18px; opacity: .9; max-width: 600px; margin: 0 auto 32px; }
+  .cta-final .btn-wpp {
+    background: var(--ink); color: #fff;
+    padding: 20px 36px; border-radius: 999px;
+    font-weight: 800; font-size: 17px;
+    display: inline-flex; align-items: center; gap: 12px;
+    text-decoration: none;
+    box-shadow: var(--shadow-lg);
+    transition: transform .2s, background .2s;
+  }
+  .cta-final .btn-wpp:hover { transform: translateY(-3px); background: #000; }
+
+  /* ============ FOOTER ============ */
+  footer {
+    padding: 48px 24px 32px;
+    background: var(--ink); color: rgba(255,255,255,0.7);
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 32px; margin-bottom: 20px;
+  }
+  footer .brand-text strong { color: #fff; }
+  footer h4 {
+    color: #fff; font-size: 14px;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    font-family: 'Inter', sans-serif; font-weight: 700;
+    margin-bottom: 14px;
+  }
+  footer ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  footer ul a {
+    color: rgba(255,255,255,0.7); text-decoration: none;
+    font-size: 14px; transition: color .2s;
+  }
+  footer ul a:hover { color: var(--yellow); }
+  footer .desc { font-size: 14px; margin-top: 12px; max-width: 380px; line-height: 1.6; }
+  .footer-bottom {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; flex-wrap: wrap;
+    font-size: 12.5px; gap: 12px;
+  }
+
+  /* ============ WHATSAPP FLUTUANTE ============ */
+  .wpp-float {
+    position: fixed; bottom: 20px; right: 20px;
+    background: #25D366; color: #fff;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    display: grid; place-items: center;
+    box-shadow: 0 6px 20px rgba(37,211,102,.5);
+    text-decoration: none; z-index: 100;
+    transition: transform .2s;
+  }
+  .wpp-float:hover { transform: scale(1.08); }
+  .wpp-float svg { width: 32px; height: 32px; }
+  .wpp-float::before {
+    content: ''; position: absolute; inset: 0;
+    border-radius: 50%; background: #25D366;
+    animation: pulseGreen 2s infinite;
+    z-index: -1;
+  }
+  @keyframes pulseGreen {
+    0% { transform: scale(1); opacity: .7; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+
+  /* ============ RESPONSIVO ============ */
+  @media (max-width: 960px) {
+    .hero-inner, .banho-tosa-inner, .local-inner, .em-inner { grid-template-columns: 1fr; gap: 36px; }
+    .servicos-grid, .dif-grid { grid-template-columns: 1fr 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .topnav a:not(.btn-cta) { display: none; }
+    .strip-inner { gap: 18px; }
+  }
+  @media (max-width: 640px) {
+    section.block { padding: 56px 18px; }
+    .hero { padding: 40px 18px 64px; }
+    .servicos-grid, .dif-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; gap: 24px; text-align: left; }
+    .hero-card { padding: 22px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .pacote-card { padding: 26px 22px; }
+    .pacote-preco { font-size: 54px; }
+    .local-info, .map-wrap { padding: 24px; min-height: 280px; }
+    .em-btn { width: 100%; justify-content: center; }
+    .brand-text strong { font-size: 19px; }
+    .brand-text small { font-size: 10px; }
+    .topbar-inner { padding: 12px 18px; }
+    .topnav .btn-cta { padding: 8px 14px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOPBAR ============ -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="#topo" class="brand">
+      <div class="brand-mark">C</div>
+      <div class="brand-text">
+        <strong>Clinipop</strong>
+        <small>Clínica Veterinária · Dois Vizinhos/PR</small>
+      </div>
+    </a>
+    <nav class="topnav">
+      <a href="#servicos">Serviços</a>
+      <a href="#banho-tosa">Banho & Tosa</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#localizacao">Localização</a>
+      <a class="btn-cta" href="#" data-wa="topo">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2.5-1.3c-.3-.2-.7-.1-1 .2l-.7.7c-1.4-.8-2.5-1.9-3.3-3.3l.7-.7c.3-.3.4-.7.2-1L9.6 6.5C9.3 5.9 8.6 5.7 8 6c-1.8.9-2.6 3-1.8 4.9 1.4 3.5 4.2 6.3 7.7 7.7 1.9.8 4-.1 4.9-1.8.3-.6.1-1.3-.5-1.6z"/></svg>
+        WhatsApp
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="topo">
+  <div class="hero-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+  <div class="hero-inner">
+    <div>
+      <span class="hero-pill"><span class="hero-pill-dot"></span> 12 anos cuidando dos pets de Dois Vizinhos</span>
+      <h1>O cuidado que <em>seu pet merece</em>, com o coração que só a Clinipop tem.</h1>
+      <p class="lead">Clínica veterinária completa em Dois Vizinhos/PR. Atendimento humano, equipamentos modernos e a flexibilidade que sua rotina precisa. Plantão veterinário 24h pra emergências.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#" data-wa="hero-principal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2.5-1.3c-.3-.2-.7-.1-1 .2l-.7.7c-1.4-.8-2.5-1.9-3.3-3.3l.7-.7c.3-.3.4-.7.2-1L9.6 6.5C9.3 5.9 8.6 5.7 8 6c-1.8.9-2.6 3-1.8 4.9 1.4 3.5 4.2 6.3 7.7 7.7 1.9.8 4-.1 4.9-1.8.3-.6.1-1.3-.5-1.6z"/></svg>
+          Agendar pelo WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="#servicos">Ver serviços</a>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <h3>Por que a Clinipop</h3>
+      <div class="hero-stats">
+        <div class="stat"><strong>12+</strong><span>anos de experiência</span></div>
+        <div class="stat"><strong>24h</strong><span>plantão veterinário</span></div>
+        <div class="stat"><strong>2</strong><span>veterinárias dedicadas</span></div>
+        <div class="stat"><strong>100+</strong><span>pets atendidos/semana</span></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ STRIP ============ -->
+<div class="strip">
+  <div class="strip-inner">
+    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11H3v10h6V11z"/><path d="M15 3l-3 8H9v10h6l5-9V3h-5z"/></svg> <strong>Equipamentos modernos:</strong> RX, ECG, Ecocardiograma, Ultrassom</div>
+    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> <strong>Plantão veterinário 24h</strong> via sobreaviso</div>
+    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> <strong>Internação</strong> com acompanhamento</div>
+    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-6 0v4"/><rect x="4" y="9" width="16" height="11" rx="2"/></svg> <strong>Buscamos e entregamos</strong> seu pet</div>
+  </div>
+</div>
+
+<!-- ============ SERVIÇOS ============ -->
+<section class="block servicos" id="servicos">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Nossos Serviços</span>
+      <h2>Tudo que seu pet precisa, <em>em um só lugar</em></h2>
+      <p>Atendimento clínico, cirurgias, exames de imagem e banho e tosa com equipe especializada e equipamentos próprios.</p>
+    </div>
+
+    <div class="servicos-grid">
+      <div class="servico-card">
+        <div class="servico-icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3>Consulta Clínica</h3>
+        <p>Atendimento clínico geral para cães e gatos. Diagnóstico, tratamento e acompanhamento contínuo do seu pet.</p>
+      </div>
+
+      <div class="servico-card">
+        <div class="servico-icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3>Cirurgias</h3>
+        <p>Cirurgias gerais com nossa equipe e ortopédicas com veterinários parceiros especializados. Estrutura completa com internação.</p>
+      </div>
+
+      <div class="servico-card">
+        <div class="servico-icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+        <h3>Exames de Imagem</h3>
+        <p>Raio-X, ecocardiograma, eletrocardiograma e ultrassom no local. Diagnóstico preciso em poucos minutos.</p>
+        <span class="badge-novo">Novo Ultrassom</span>
+      </div>
+
+      <div class="servico-card">
+        <div class="servico-icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.18 0 4.18.78 5.74 2.06"/><path d="M21 4l-9 9-3-3"/></svg></div>
+        <h3>Endoscopia</h3>
+        <p>Procedimentos endoscópicos com profissional especializado. Indicado para retirada de corpos estranhos e investigação interna.</p>
+      </div>
+
+      <div class="servico-card">
+        <div class="servico-icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3>Internação</h3>
+        <p>Estrutura própria para internação com acompanhamento veterinário. Seu pet bem cuidado quando precisar ficar conosco.</p>
+      </div>
+
+      <div class="servico-card">
+        <div class="servico-icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h3>Banho & Tosa</h3>
+        <p>100 a 150 banhos por semana de pets felizes. Pacote mensal com flexibilidade de remarcação — não perca o banho do seu pet em feriado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BANHO E TOSA EM DESTAQUE ============ -->
+<section class="block banho-tosa" id="banho-tosa">
+  <div class="container">
+    <div class="banho-tosa-inner">
+      <div>
+        <span class="hero-pill" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.2); color: #fff;">
+          <span class="hero-pill-dot" style="background: var(--yellow);"></span> Diferencial Clinipop
+        </span>
+        <h2>Banho e Tosa com a <em>flexibilidade</em> que ninguém oferece</h2>
+        <p class="lead">100 a 150 pets banham com a gente toda semana. Aqui, se chove no dia do banho do seu pet ou se vocês têm um imprevisto, a gente remaneja — sem perder o banho.</p>
+
+        <div class="bt-features">
+          <div class="bt-feature">
+            <div class="ico">✓</div>
+            <span><strong>Flexibilidade total:</strong> se o dia do banho cair em feriado, remarcamos pra um dia antes ou depois</span>
+          </div>
+          <div class="bt-feature">
+            <div class="ico">🚐</div>
+            <span><strong>Busca e entrega:</strong> levamos e trazemos seu pet de carro — atendemos Dois Vizinhos e cidade vizinha</span>
+          </div>
+          <div class="bt-feature">
+            <div class="ico">⏰</div>
+            <span><strong>Sábado começa cedo:</strong> abrimos às 7h30 sexta e sábado pra você buscar o pet antes do almoço</span>
+          </div>
+          <div class="bt-feature">
+            <div class="ico">❤️</div>
+            <span><strong>Coração grande:</strong> a gente entende que pet é família — e cuida como se fosse</span>
+          </div>
+        </div>
+
+        <a class="btn" style="background: var(--yellow); color: var(--ink);" href="#" data-wa="banho-tosa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2.5-1.3c-.3-.2-.7-.1-1 .2l-.7.7c-1.4-.8-2.5-1.9-3.3-3.3l.7-.7c.3-.3.4-.7.2-1L9.6 6.5C9.3 5.9 8.6 5.7 8 6c-1.8.9-2.6 3-1.8 4.9 1.4 3.5 4.2 6.3 7.7 7.7 1.9.8 4-.1 4.9-1.8.3-.6.1-1.3-.5-1.6z"/></svg>
+          Agendar Banho e Tosa
+        </a>
+      </div>
+
+      <div class="pacote-card">
+        <div class="ribbon">Pacote mais pedido</div>
+        <h3>Pacote 4 Banhos</h3>
+        <p class="sub">+ tosa higiênica grátis</p>
+        <div class="pacote-preco"><span class="moeda">R$</span>85</div>
+        <div class="moeda-row">à vista · para o pacote completo</div>
+        <ul>
+          <li>4 banhos no período (não é por mês, é o pacote completo)</li>
+          <li>Tosa higiênica inclusa em cada banho</li>
+          <li>Tosa no corpo opcional, com adicional</li>
+          <li>Remarcação sem perda em caso de feriado/imprevisto</li>
+          <li>Atendimento personalizado por porte e raça</li>
+        </ul>
+        <a class="btn btn-primary" href="#" data-wa="pacote" style="width:100%; justify-content:center;">Quero esse pacote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIFERENCIAIS ============ -->
+<section class="block diferenciais" id="diferenciais">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Por que escolher a Clinipop</span>
+      <h2>Mais de uma década cuidando de pets de <em>Dois Vizinhos</em></h2>
+      <p>O que faz a Clinipop diferente das outras opções da cidade.</p>
+    </div>
+
+    <div class="dif-grid">
+      <div class="dif-card">
+        <div class="dif-num">01</div>
+        <h3>12 anos de história</h3>
+        <p>Mais de uma década atendendo pets em Dois Vizinhos. Conhecemos a região, conhecemos os tutores e conhecemos cada raça.</p>
+      </div>
+
+      <div class="dif-card">
+        <div class="dif-num">02</div>
+        <h3>Plantão 24h</h3>
+        <p>Emergência veterinária a qualquer hora via sobreaviso. Você liga, a veterinária vem atender.</p>
+      </div>
+
+      <div class="dif-card">
+        <div class="dif-num">03</div>
+        <h3>Equipe especializada</h3>
+        <p>Veterinárias com especialização em felinos e parcerias com profissionais ortopedistas para cirurgias complexas.</p>
+      </div>
+
+      <div class="dif-card">
+        <div class="dif-num">04</div>
+        <h3>Equipamentos próprios</h3>
+        <p>Raio-X, ECG, ecocardiograma e ultrassom (recém-adquirido). Diagnóstico no local, sem precisar deslocar seu pet.</p>
+      </div>
+
+      <div class="dif-card">
+        <div class="dif-num">05</div>
+        <h3>Busca e entrega</h3>
+        <p>Rotas organizadas pra buscar e levar seu pet pra banho e tosa. Atendemos Dois Vizinhos e região.</p>
+      </div>
+
+      <div class="dif-card">
+        <div class="dif-num">06</div>
+        <h3>Internação e pós-cirúrgico</h3>
+        <p>Estrutura própria para internação com câmera de monitoramento e acompanhamento veterinário contínuo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EMERGÊNCIA 24H ============ -->
+<section class="block emergencia">
+  <div class="container">
+    <div class="em-inner">
+      <div class="em-content">
+        <span class="eyebrow">🚨 Emergência Veterinária</span>
+        <h2>Seu pet precisando <em>agora</em>?</h2>
+        <p>Atendimento de plantão 24 horas via sobreaviso. Ligue e a veterinária vem até a clínica para atender. Não importa o horário — emergência é emergência.</p>
+      </div>
+      <a href="#" data-wa="emergencia" class="em-btn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Falar com plantão agora
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCALIZAÇÃO ============ -->
+<section class="block local" id="localizacao">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Onde estamos</span>
+      <h2>Venha nos visitar <em>em Dois Vizinhos</em></h2>
+      <p>Central, fácil acesso. E se preferir, a gente vai até você pra busca e entrega do banho e tosa.</p>
+    </div>
+
+    <div class="local-inner">
+      <div class="local-info">
+        <div class="local-row">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="txt">
+            <strong>Endereço</strong>
+            <span>Rua do Comércio, 817 — Centro<br>Dois Vizinhos / PR · 85660-000</span>
+          </div>
+        </div>
+
+        <div class="local-row">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="txt">
+            <strong>Horário de Atendimento</strong>
+            <span><strong style="color:var(--ink);">Loja & Banho e Tosa:</strong><br>Seg a Sex · 8h às 18h<br>Sex e Sáb · começa às 7h30 · Sáb até 12h</span>
+          </div>
+        </div>
+
+        <div class="local-row">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div class="txt">
+            <strong>Plantão Veterinário</strong>
+            <span><strong style="color:var(--ink);">24 horas via sobreaviso</strong><br>Ligue e a veterinária vem atender</span>
+          </div>
+        </div>
+
+        <div class="local-row">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+          <div class="txt">
+            <strong>Contato</strong>
+            <span>WhatsApp da clínica e da loja · <a href="#" data-wa="contato-info">clique aqui pra falar com a gente</a></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3554.7!2d-53.062!3d-25.7398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sRua%20do%20Com%C3%A9rcio%2C%20817%20-%20Centro%2C%20Dois%20Vizinhos%20-%20PR%2C%2085660-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="block cta-final">
+  <div class="container">
+    <h2>Seu pet <em>merece o melhor</em>.<br>E o melhor começa por uma mensagem.</h2>
+    <p>Agende uma consulta, marque o banho e tosa ou tire suas dúvidas pelo WhatsApp. Nossa equipe responde rapidinho.</p>
+    <a class="btn-wpp" href="#" data-wa="cta-final">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2.5-1.3c-.3-.2-.7-.1-1 .2l-.7.7c-1.4-.8-2.5-1.9-3.3-3.3l.7-.7c.3-.3.4-.7.2-1L9.6 6.5C9.3 5.9 8.6 5.7 8 6c-1.8.9-2.6 3-1.8 4.9 1.4 3.5 4.2 6.3 7.7 7.7 1.9.8 4-.1 4.9-1.8.3-.6.1-1.3-.5-1.6zM12 2a10 10 0 1 0 10 10c0-1.97-.57-3.8-1.55-5.34L22 2l-4.66 1.55A9.94 9.94 0 0 0 12 2z"/></svg>
+      Chamar no WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="#topo" class="brand">
+        <div class="brand-mark">C</div>
+        <div class="brand-text">
+          <strong>Clinipop</strong>
+          <small style="color: rgba(255,255,255,0.6);">Clínica Veterinária · Dois Vizinhos/PR</small>
+        </div>
+      </a>
+      <p class="desc">Cuidamos do seu pet com o coração grande de quem entende que pet é família. Há mais de 12 anos em Dois Vizinhos/PR.</p>
+    </div>
+
+    <div>
+      <h4>Serviços</h4>
+      <ul>
+        <li><a href="#servicos">Consulta clínica</a></li>
+        <li><a href="#servicos">Cirurgias</a></li>
+        <li><a href="#servicos">Exames de imagem</a></li>
+        <li><a href="#servicos">Internação</a></li>
+        <li><a href="#banho-tosa">Banho e Tosa</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="#" data-wa="footer">WhatsApp</a></li>
+        <li><a href="#localizacao">Endereço</a></li>
+        <li><a href="#localizacao">Horário</a></li>
+        <li><a href="https://instagram.com/clinipop.dv" target="_blank" rel="noopener">@clinipop.dv</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> Clinipop · SPALLA & FAVIN LTDA · CNPJ 19.621.080/0001-20</span>
+    <span>Dois Vizinhos / PR</span>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLUTUANTE ============ -->
+<a href="#" class="wpp-float" data-wa="float" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2.5-1.3c-.3-.2-.7-.1-1 .2l-.7.7c-1.4-.8-2.5-1.9-3.3-3.3l.7-.7c.3-.3.4-.7.2-1L9.6 6.5C9.3 5.9 8.6 5.7 8 6c-1.8.9-2.6 3-1.8 4.9 1.4 3.5 4.2 6.3 7.7 7.7 1.9.8 4-.1 4.9-1.8.3-.6.1-1.3-.5-1.6zM12 2a10 10 0 1 0 10 10c0-1.97-.57-3.8-1.55-5.34L22 2l-4.66 1.55A9.94 9.94 0 0 0 12 2z"/></svg>
+</a>
+
+<script>
+  // ============ CONFIG GLOBAL ============
+  // ⚠️ Substituir pelo número real da Clinipop quando confirmado
+  const WPP_NUMERO = '5546999999999'; // [CONFIRMAR com Elisangela]
+
+  // Mensagens pré-preenchidas por origem (já preparado pro tracking via n8n)
+  const MENSAGENS = {
+    'topo':          'Oi! Vim pelo site da Clinipop e quero conversar.',
+    'hero-principal':'Oi! Quero agendar uma consulta na Clinipop.',
+    'banho-tosa':    'Oi! Vim pelo site e quero saber sobre o banho e tosa.',
+    'pacote':        'Oi! Quero pegar o pacote de 4 banhos + tosa higiênica.',
+    'emergencia':    '🚨 EMERGÊNCIA — preciso de atendimento veterinário agora.',
+    'cta-final':     'Oi! Vim pelo site da Clinipop e quero conversar.',
+    'contato-info':  'Oi! Vim pelo site e tenho uma dúvida.',
+    'footer':        'Oi! Vim pelo site da Clinipop.',
+    'float':         'Oi! Vim pelo site da Clinipop.'
+  };
+
+  // Monta link WhatsApp com tracking de origem
+  function buildWpp(origem) {
+    const msg = MENSAGENS[origem] || MENSAGENS['topo'];
+    const txt = encodeURIComponent(`Origem: site-${origem}\n\n${msg}`);
+    return `https://wa.me/${WPP_NUMERO}?text=${txt}`;
+  }
+
+  // Aplica em todos os botões com data-wa
+  document.querySelectorAll('[data-wa]').forEach(el => {
+    const origem = el.getAttribute('data-wa');
+    el.setAttribute('href', buildWpp(origem));
+    el.setAttribute('target', '_blank');
+    el.setAttribute('rel', 'noopener');
+  });
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll suave (extra para Safari)
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id === '#' || !id.startsWith('#')) return;
+      const target = document.querySelector(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
