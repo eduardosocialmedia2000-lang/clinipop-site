@@ -507,37 +507,90 @@ h1, h2, h3, h4 {
 .marquee {
   border-top: 1px solid var(--ink-line);
   border-bottom: 1px solid var(--ink-line);
-  padding: 18px 0;
   overflow: hidden;
   background: var(--canvas);
+  position: relative;
+}
+.marquee::before, .marquee::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee::before { left: 0; background: linear-gradient(90deg, var(--canvas), transparent); }
+.marquee::after { right: 0; background: linear-gradient(-90deg, var(--canvas), transparent); }
+
+.marquee-row {
+  display: flex;
+  overflow: hidden;
+  padding: 14px 0;
+}
+.marquee-row + .marquee-row {
+  border-top: 1px solid var(--ink-line);
 }
 .marquee-track {
   display: flex;
-  gap: var(--space-7);
-  animation: scroll-x 36s linear infinite;
+  gap: 16px;
   width: max-content;
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 500;
-  font-style: italic;
-  color: var(--ink);
-  letter-spacing: -0.02em;
   white-space: nowrap;
-}
-.marquee-track span {
-  display: inline-flex;
   align-items: center;
-  gap: var(--space-7);
 }
-.marquee-track span::after {
-  content: '✦';
-  color: var(--accent);
-  font-style: normal;
-  font-size: 12px;
+.marquee-row.dir-left .marquee-track {
+  animation: marqueeLeft 28s linear infinite;
 }
-@keyframes scroll-x {
+.marquee-row.dir-right .marquee-track {
+  animation: marqueeRight 32s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marqueeLeft {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
+}
+@keyframes marqueeRight {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.marquee-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 22px;
+  border: 1px solid var(--ink-line);
+  border-radius: 999px;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  background: var(--canvas);
+  transition: background 0.4s var(--ease-out), color 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
+}
+.marquee-chip:hover {
+  background: var(--ink);
+  color: var(--canvas);
+  border-color: var(--ink);
+}
+.marquee-chip.accent {
+  background: var(--ink);
+  color: var(--canvas);
+  border-color: var(--ink);
+}
+.marquee-chip.accent:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.marquee-star {
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--accent);
+  user-select: none;
+  flex-shrink: 0;
 }
 
 /* ============================================================
@@ -1376,10 +1429,52 @@ h1, h2, h3, h4 {
   </div>
 </section>
 
-<!-- ============ MARQUEE ============ -->
+<!-- ============ MARQUEE DUPLO ============ -->
 <div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>Consulta clínica</span><span>Cirurgia geral</span><span>Cirurgia ortopédica</span><span>Raio-X</span><span>Ecocardiograma</span><span>Ultrassom</span><span>Endoscopia</span><span>Banho &amp; Tosa</span><span>Busca &amp; Entrega</span><span>Plantão 24h</span><span>Internação</span><span>Consulta clínica</span><span>Cirurgia geral</span><span>Cirurgia ortopédica</span><span>Raio-X</span><span>Ecocardiograma</span><span>Ultrassom</span><span>Endoscopia</span><span>Banho &amp; Tosa</span><span>Busca &amp; Entrega</span><span>Plantão 24h</span><span>Internação</span>
+  <!-- Linha 1: esquerda -->
+  <div class="marquee-row dir-left">
+    <div class="marquee-track">
+      <span class="marquee-chip">Consulta clínica</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip accent">Cirurgia geral</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip">Cirurgia ortopédica</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip">Raio-X digital</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip accent">Ecocardiograma</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip">Ultrassom</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip">Endoscopia</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip accent">Internação</span><span class="marquee-star">✦</span>
+      <!-- duplicado -->
+      <span class="marquee-chip">Consulta clínica</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip accent">Cirurgia geral</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip">Cirurgia ortopédica</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip">Raio-X digital</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip accent">Ecocardiograma</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip">Ultrassom</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip">Endoscopia</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip accent">Internação</span><span class="marquee-star">✦</span>
+    </div>
+  </div>
+
+  <!-- Linha 2: direita (sentido oposto) -->
+  <div class="marquee-row dir-right">
+    <div class="marquee-track">
+      <span class="marquee-chip accent">Plantão 24 horas</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip">Banho &amp; Tosa</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip">Busca em casa</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip accent">Entrega em casa</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip">Atendimento clínico</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip">Vacinação</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip accent">Eletrocardiograma</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip">Estética animal</span><span class="marquee-star">✦</span>
+      <!-- duplicado -->
+      <span class="marquee-chip accent">Plantão 24 horas</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip">Banho &amp; Tosa</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip">Busca em casa</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip accent">Entrega em casa</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip">Atendimento clínico</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip">Vacinação</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip accent">Eletrocardiograma</span><span class="marquee-star">✦</span>
+      <span class="marquee-chip">Estética animal</span><span class="marquee-star">✦</span>
+    </div>
   </div>
 </div>
 
