@@ -714,8 +714,8 @@ h1, h2, h3, h4 {
   position: relative;
   margin: 0 calc(-1 * var(--space-6));
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
   padding: var(--space-7) 0 var(--space-6);
 }
 .carousel-track {
@@ -881,13 +881,19 @@ h1, h2, h3, h4 {
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  overflow: hidden;
+}
+.service-card.style-image .img-content > div {
+  width: 100%;
+  max-width: 100%;
 }
 .service-card.style-image .title,
 .service-card.style-image .desc {
   word-wrap: break-word;
   overflow-wrap: break-word;
   max-width: 100%;
+}
+.service-card.style-image .title {
+  font-size: 28px !important;
 }
 .service-card.style-image .num {
   font-family: var(--serif); font-size: 13px; font-weight: 500;
