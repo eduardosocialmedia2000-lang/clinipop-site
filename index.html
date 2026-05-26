@@ -6,7 +6,10 @@
 <meta name="description" content="Clinipop · Clínica veterinária em Dois Vizinhos/PR há 12 anos. Atendimento clínico, cirurgias, exames, banho e tosa com busca e entrega. Plantão veterinário 24h." />
 <meta name="theme-color" content="#F26622" />
 <title>Clinipop · Clínica Veterinária em Dois Vizinhos/PR · Plantão 24h</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23F26622'/%3E%3Ctext x='50' y='66' text-anchor='middle' font-family='Georgia,serif' font-size='52' font-weight='900' fill='%23fff'%3EC%3C/text%3E%3C/svg%3E" />
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta property="og:image" content="/icon-512.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,8 +39,8 @@
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "07:30", "closes": "12:00" }
   ],
-  "image": "",
-  "telephone": "",
+  "image": "/icon-512.png",
+  "telephone": "+5546999099437",
   "areaServed": "Dois Vizinhos e região, PR"
 }
 </script>
@@ -104,12 +107,15 @@
     text-decoration: none;
   }
   .brand-mark {
-    width: 44px; height: 44px; border-radius: 50%;
-    background: conic-gradient(from 220deg, var(--orange), var(--yellow), var(--teal), var(--orange));
-    display: grid; place-items: center;
-    color: #fff; font-family: 'Fraunces', serif;
-    font-weight: 900; font-size: 20px;
+    width: 48px; height: 48px; border-radius: 50%;
+    overflow: hidden;
     box-shadow: var(--shadow-sm);
+    background: #fff;
+    flex-shrink: 0;
+  }
+  .brand-mark img {
+    width: 100%; height: 100%; object-fit: cover;
+    display: block;
   }
   .brand-text {
     display: flex; flex-direction: column; line-height: 1.1;
@@ -139,6 +145,16 @@
     transition: background .2s, transform .2s;
   }
   .topnav .btn-cta:hover { background: var(--orange-deep); transform: translateY(-1px); }
+  .topnav .btn-call {
+    background: var(--teal); color: #fff;
+    padding: 10px 14px; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 6px;
+    box-shadow: var(--shadow-sm);
+    transition: background .2s, transform .2s;
+    font-size: 13px;
+  }
+  .topnav .btn-call:hover { background: var(--teal-deep); transform: translateY(-1px); }
+  .topnav .btn-call svg { width: 14px; height: 14px; }
 
   /* ============ HERO ============ */
   .hero {
@@ -460,16 +476,25 @@
   .emergencia h2 { color: #fff; font-size: clamp(28px, 3.6vw, 40px); }
   .emergencia h2 em { color: var(--orange); font-style: italic; }
   .emergencia p { color: rgba(255,255,255,0.85); font-size: 16px; margin-top: 12px; max-width: 540px; }
+  .em-btns { display: flex; gap: 12px; flex-wrap: wrap; }
   .em-btn {
-    background: var(--orange); color: #fff;
-    padding: 20px 32px; border-radius: 999px;
+    padding: 20px 28px; border-radius: 999px;
     font-weight: 800; font-size: 16px;
     display: inline-flex; align-items: center; gap: 12px;
-    text-decoration: none;
+    text-decoration: none; white-space: nowrap;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .em-btn:hover { transform: translateY(-2px); }
+  .em-btn-call {
+    background: var(--orange); color: #fff;
     box-shadow: 0 0 0 0 rgba(242,102,34,0.6);
     animation: pulseOrange 2s ease-out infinite;
-    white-space: nowrap;
   }
+  .em-btn-wpp {
+    background: #25D366; color: #fff;
+    box-shadow: 0 6px 16px rgba(37,211,102,0.4);
+  }
+  .em-btn-wpp:hover { background: #1FB95A; }
   @keyframes pulseOrange {
     0% { box-shadow: 0 0 0 0 rgba(242,102,34,0.5); }
     70% { box-shadow: 0 0 0 18px rgba(242,102,34,0); }
@@ -579,20 +604,25 @@
     font-size: 12.5px; gap: 12px;
   }
 
-  /* ============ WHATSAPP FLUTUANTE ============ */
-  .wpp-float {
+  /* ============ FLOAT BUTTONS ============ */
+  .float-stack {
     position: fixed; bottom: 20px; right: 20px;
-    background: #25D366; color: #fff;
+    z-index: 100;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .float-btn {
     width: 60px; height: 60px;
     border-radius: 50%;
     display: grid; place-items: center;
-    box-shadow: 0 6px 20px rgba(37,211,102,.5);
-    text-decoration: none; z-index: 100;
+    text-decoration: none; color: #fff;
     transition: transform .2s;
+    position: relative;
   }
-  .wpp-float:hover { transform: scale(1.08); }
-  .wpp-float svg { width: 32px; height: 32px; }
-  .wpp-float::before {
+  .float-btn:hover { transform: scale(1.08); }
+  .float-btn svg { width: 28px; height: 28px; }
+  .float-wpp { background: #25D366; box-shadow: 0 6px 20px rgba(37,211,102,.5); }
+  .float-call { background: var(--orange); box-shadow: 0 6px 20px rgba(242,102,34,.5); }
+  .float-wpp::before {
     content: ''; position: absolute; inset: 0;
     border-radius: 50%; background: #25D366;
     animation: pulseGreen 2s infinite;
@@ -608,7 +638,7 @@
     .hero-inner, .banho-tosa-inner, .local-inner, .em-inner { grid-template-columns: 1fr; gap: 36px; }
     .servicos-grid, .dif-grid { grid-template-columns: 1fr 1fr; }
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 28px; }
-    .topnav a:not(.btn-cta) { display: none; }
+    .topnav a:not(.btn-cta):not(.btn-call) { display: none; }
     .strip-inner { gap: 18px; }
   }
   @media (max-width: 640px) {
@@ -635,7 +665,7 @@
 <header class="topbar">
   <div class="topbar-inner">
     <a href="#topo" class="brand">
-      <div class="brand-mark">C</div>
+      <div class="brand-mark"><img src="/logo-clinipop.jpg" alt="Logo Clinipop" /></div>
       <div class="brand-text">
         <strong>Clinipop</strong>
         <small>Clínica Veterinária · Dois Vizinhos/PR</small>
@@ -646,6 +676,10 @@
       <a href="#banho-tosa">Banho & Tosa</a>
       <a href="#diferenciais">Diferenciais</a>
       <a href="#localizacao">Localização</a>
+      <a class="btn-call" href="tel:+5546999099437" aria-label="Ligar para Clinipop">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Ligar
+      </a>
       <a class="btn-cta" href="#" data-wa="topo">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2.5-1.3c-.3-.2-.7-.1-1 .2l-.7.7c-1.4-.8-2.5-1.9-3.3-3.3l.7-.7c.3-.3.4-.7.2-1L9.6 6.5C9.3 5.9 8.6 5.7 8 6c-1.8.9-2.6 3-1.8 4.9 1.4 3.5 4.2 6.3 7.7 7.7 1.9.8 4-.1 4.9-1.8.3-.6.1-1.3-.5-1.6z"/></svg>
         WhatsApp
@@ -859,10 +893,16 @@
         <h2>Seu pet precisando <em>agora</em>?</h2>
         <p>Atendimento de plantão 24 horas via sobreaviso. Ligue e a veterinária vem até a clínica para atender. Não importa o horário — emergência é emergência.</p>
       </div>
-      <a href="#" data-wa="emergencia" class="em-btn">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Falar com plantão agora
-      </a>
+      <div class="em-btns">
+        <a href="tel:+5546999099437" class="em-btn em-btn-call" aria-label="Ligar para plantão Clinipop">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Ligar agora
+        </a>
+        <a href="#" data-wa="emergencia" class="em-btn em-btn-wpp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2.5-1.3c-.3-.2-.7-.1-1 .2l-.7.7c-1.4-.8-2.5-1.9-3.3-3.3l.7-.7c.3-.3.4-.7.2-1L9.6 6.5C9.3 5.9 8.6 5.7 8 6c-1.8.9-2.6 3-1.8 4.9 1.4 3.5 4.2 6.3 7.7 7.7 1.9.8 4-.1 4.9-1.8.3-.6.1-1.3-.5-1.6zM12 2a10 10 0 1 0 10 10c0-1.97-.57-3.8-1.55-5.34L22 2l-4.66 1.55A9.94 9.94 0 0 0 12 2z"/></svg>
+          WhatsApp
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -906,7 +946,10 @@
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
           <div class="txt">
             <strong>Contato</strong>
-            <span>WhatsApp da clínica e da loja · <a href="#" data-wa="contato-info">clique aqui pra falar com a gente</a></span>
+            <span>
+              📞 <a href="tel:+5546999099437"><strong style="color:var(--ink);">(46) 99909-9437</strong></a><br>
+              💬 <a href="#" data-wa="contato-info">Falar no WhatsApp</a>
+            </span>
           </div>
         </div>
       </div>
@@ -935,7 +978,7 @@
   <div class="footer-inner">
     <div>
       <a href="#topo" class="brand">
-        <div class="brand-mark">C</div>
+        <div class="brand-mark"><img src="/logo-clinipop.jpg" alt="Logo Clinipop" /></div>
         <div class="brand-text">
           <strong>Clinipop</strong>
           <small style="color: rgba(255,255,255,0.6);">Clínica Veterinária · Dois Vizinhos/PR</small>
@@ -972,15 +1015,20 @@
   </div>
 </footer>
 
-<!-- ============ WHATSAPP FLUTUANTE ============ -->
-<a href="#" class="wpp-float" data-wa="float" aria-label="Falar no WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2.5-1.3c-.3-.2-.7-.1-1 .2l-.7.7c-1.4-.8-2.5-1.9-3.3-3.3l.7-.7c.3-.3.4-.7.2-1L9.6 6.5C9.3 5.9 8.6 5.7 8 6c-1.8.9-2.6 3-1.8 4.9 1.4 3.5 4.2 6.3 7.7 7.7 1.9.8 4-.1 4.9-1.8.3-.6.1-1.3-.5-1.6zM12 2a10 10 0 1 0 10 10c0-1.97-.57-3.8-1.55-5.34L22 2l-4.66 1.55A9.94 9.94 0 0 0 12 2z"/></svg>
-</a>
+<!-- ============ BOTÕES FLUTUANTES ============ -->
+<div class="float-stack">
+  <a href="tel:+5546999099437" class="float-btn float-call" aria-label="Ligar para Clinipop">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+  <a href="#" class="float-btn float-wpp" data-wa="float" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2.5-1.3c-.3-.2-.7-.1-1 .2l-.7.7c-1.4-.8-2.5-1.9-3.3-3.3l.7-.7c.3-.3.4-.7.2-1L9.6 6.5C9.3 5.9 8.6 5.7 8 6c-1.8.9-2.6 3-1.8 4.9 1.4 3.5 4.2 6.3 7.7 7.7 1.9.8 4-.1 4.9-1.8.3-.6.1-1.3-.5-1.6zM12 2a10 10 0 1 0 10 10c0-1.97-.57-3.8-1.55-5.34L22 2l-4.66 1.55A9.94 9.94 0 0 0 12 2z"/></svg>
+  </a>
+</div>
 
 <script>
   // ============ CONFIG GLOBAL ============
   // ⚠️ Substituir pelo número real da Clinipop quando confirmado
-  const WPP_NUMERO = '5546999999999'; // [CONFIRMAR com Elisangela]
+  const WPP_NUMERO = '5546999099437'; // Clinipop · confirmado
 
   // Mensagens pré-preenchidas por origem (já preparado pro tracking via n8n)
   const MENSAGENS = {
