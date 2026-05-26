@@ -749,8 +749,8 @@ h1, h2, h3, h4 {
 .service-card.size-md { width: 340px; height: 360px; }
 .service-card.size-lg { width: 380px; height: 400px; }
 
-/* Card image precisa de mais largura pra texto não vazar */
-.service-card.style-image.size-md { width: 400px; height: 400px; }
+/* Card image (split foto + texto) */
+.service-card.style-image.size-md { width: 340px; height: 380px; }
 
 /* Estilo claro (cream com borda) */
 .service-card.style-light {
@@ -858,62 +858,61 @@ h1, h2, h3, h4 {
   line-height: 1.05;
 }
 
-/* Estilo image (com foto) */
+/* Estilo image (split: foto em cima + texto embaixo) */
 .service-card.style-image {
   padding: 0;
-  background: var(--ink);
-  color: var(--canvas);
-  position: relative;
+  background: var(--canvas);
+  color: var(--ink);
+  border: 1px solid var(--ink-line);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
-.service-card.style-image img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  filter: brightness(0.68) saturate(0.9);
-  transition: transform 1s var(--ease-out), filter 0.5s var(--ease-out);
-}
-.service-card.style-image .img-content {
-  position: relative; z-index: 1;
-  padding: var(--space-6);
-  height: 100%;
+.service-card.style-image .card-img {
   width: 100%;
+  height: 180px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.service-card.style-image .card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out);
+}
+.service-card.style-image:hover .card-img img {
+  transform: scale(1.06);
+}
+.service-card.style-image .card-body {
+  padding: var(--space-5);
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-sizing: border-box;
-}
-.service-card.style-image .img-content > div {
-  width: 100%;
-  max-width: 100%;
-}
-.service-card.style-image .title,
-.service-card.style-image .desc {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  max-width: 100%;
-}
-.service-card.style-image .title {
-  font-size: 28px !important;
+  min-width: 0;
 }
 .service-card.style-image .num {
-  font-family: var(--serif); font-size: 13px; font-weight: 500;
-  font-style: italic; color: var(--accent);
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--accent);
 }
 .service-card.style-image .title {
-  font-family: var(--serif); font-weight: 500;
-  letter-spacing: -0.025em; line-height: 1.02;
-  font-size: 32px;
-  margin-top: var(--space-3);
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+  font-size: 26px;
+  margin-top: var(--space-2);
+  color: var(--ink);
 }
 .service-card.style-image .desc {
-  font-size: 14px;
-  line-height: 1.45;
-  color: rgba(250,246,238,0.92);
+  font-family: var(--sans);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
   margin-top: var(--space-3);
-  max-width: 100%;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
 }
 
 /* Foot (rodapé) — universal */
@@ -960,9 +959,8 @@ h1, h2, h3, h4 {
   border-color: var(--accent);
   color: var(--canvas);
 }
-.service-card.style-image:hover img {
+.service-card.style-image:hover .card-img img {
   transform: scale(1.08);
-  filter: brightness(0.55) saturate(0.95);
 }
 
 /* Loading animation no border (subtle pulse) */
@@ -1483,12 +1481,13 @@ h1, h2, h3, h4 {
   .service-card.size-sm { width: 240px; height: 280px; }
   .service-card.size-md { width: 270px; height: 320px; }
   .service-card.size-lg { width: 290px; height: 340px; }
-  .service-card.style-image.size-md { width: 300px; height: 360px; }
+  .service-card.style-image.size-md { width: 290px; height: 360px; }
   .service-card.style-light,
   .service-card.style-dark,
   .service-card.style-accent,
   .service-card.style-display { padding: var(--space-5) var(--space-4); }
-  .service-card.style-image .img-content { padding: var(--space-5) var(--space-4); }
+  .service-card.style-image .card-body { padding: var(--space-4); }
+  .service-card.style-image .card-img { height: 140px; }
   .service-card .title { font-size: 20px !important; line-height: 1.05; word-wrap: break-word; overflow-wrap: break-word; }
   .service-card.style-display .big-num { font-size: 80px; }
   .service-card .desc { font-size: 13px; line-height: 1.5; }
@@ -1760,20 +1759,20 @@ h1, h2, h3, h4 {
           </div>
         </a>
 
-        <!-- Card 4: image (banho) -->
+        <!-- Card 4: image split (banho) -->
         <a class="service-card style-image size-md" href="#banho">
-          <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="Banho de cachorro" />
-          <div class="img-content">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="Banho de cachorro" />
+          </div>
+          <div class="card-body">
             <div>
               <span class="num">No. 03</span>
               <div class="title">Banho &amp; Tosa</div>
+              <div class="desc">Remarcação flexível e busca em casa.</div>
             </div>
-            <div>
-              <div class="desc">Remarcação flexível. Busca e entrega em casa.</div>
-              <div class="foot">
-                <span class="foot-label">Ver pacote</span>
-                <span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-              </div>
+            <div class="foot">
+              <span class="foot-label">Ver pacote</span>
+              <span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
             </div>
           </div>
         </a>
@@ -1853,16 +1852,16 @@ h1, h2, h3, h4 {
           <div><div class="title">Doze anos cuidando dos pets de Dois Vizinhos.</div></div>
         </a>
         <a class="service-card style-image size-md" href="#banho" aria-hidden="true">
-          <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="" />
-          <div class="img-content">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="" />
+          </div>
+          <div class="card-body">
             <div>
               <span class="num">No. 03</span>
               <div class="title">Banho &amp; Tosa</div>
+              <div class="desc">Remarcação flexível e busca em casa.</div>
             </div>
-            <div>
-              <div class="desc">Remarcação flexível. Busca e entrega em casa.</div>
-              <div class="foot"><span class="foot-label">Ver pacote</span><span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
-            </div>
+            <div class="foot"><span class="foot-label">Ver pacote</span><span class="foot-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
           </div>
         </a>
         <a class="service-card style-accent size-md" href="tel:+5546999099437" aria-hidden="true">
