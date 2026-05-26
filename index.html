@@ -873,9 +873,18 @@ h1, h2, h3, h4 {
   position: relative; z-index: 1;
   padding: var(--space-6);
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.service-card.style-image .title,
+.service-card.style-image .desc {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 .service-card.style-image .num {
   font-family: var(--serif); font-size: 13px; font-weight: 500;
@@ -1458,12 +1467,18 @@ h1, h2, h3, h4 {
   .carousel-wrap { margin: 0 calc(-1 * var(--space-5)); padding: var(--space-5) 0; }
   .carousel-track { padding: 0 var(--space-5); gap: 14px; }
   .service-card.size-sm { width: 240px; height: 280px; }
-  .service-card.size-md { width: 270px; height: 310px; }
+  .service-card.size-md { width: 270px; height: 320px; }
   .service-card.size-lg { width: 290px; height: 340px; }
-  .service-card.style-light, .service-card.style-dark, .service-card.style-accent, .service-card.style-display { padding: var(--space-5) var(--space-4); }
-  .service-card .title { font-size: 22px !important; }
+  .service-card.style-light,
+  .service-card.style-dark,
+  .service-card.style-accent,
+  .service-card.style-display { padding: var(--space-5) var(--space-4); }
+  .service-card.style-image .img-content { padding: var(--space-5) var(--space-4); }
+  .service-card .title { font-size: 20px !important; line-height: 1.05; word-wrap: break-word; overflow-wrap: break-word; }
   .service-card.style-display .big-num { font-size: 80px; }
-  .service-card .desc { font-size: 13px; }
+  .service-card .desc { font-size: 13px; line-height: 1.5; }
+  .service-card .foot-label { font-size: 10.5px; }
+  .service-card .foot-arrow { width: 32px; height: 32px; }
   .location-row dd { font-size: 18px; }
 }
 
