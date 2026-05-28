@@ -3,9 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Clinipop · Clínica veterinária em Dois Vizinhos, Paraná. Atendimento desde 2014. Consulta, cirurgia, exames de imagem, banho e tosa. Plantão 24 horas." />
+<meta name="description" content="Clinipop · Clínica veterinária em Dois Vizinhos, Paraná. Atendimento desde 2014. Consulta, cirurgia, exames de imagem, banho e tosa. Plantão sobreaviso fora do horário comercial." />
 <meta name="theme-color" content="#FAF6EE" />
 <title>Clinipop · Clínica Veterinária · Dois Vizinhos, PR</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18195036626"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18195036626');
+</script>
 
 <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
@@ -42,12 +51,15 @@
 :root {
   --canvas:    #FAF6EE;
   --canvas-2:  #F2EBDD;
-  --ink:       #1F1611;
+  --ink:       #2B1B12;
   --ink-soft:  #6B5C4D;
   --ink-line:  #E8DFCF;
-  --accent:    #D9501A;
-  --accent-2:  #C24513;
-  --teal:      #2E8A82;
+  /* Cores da logo Clinipop: laranja vibrante + verde turquesa */
+  --accent:    #F26622;
+  --accent-2:  #D9501A;
+  --green:     #3FB6AA;
+  --green-2:   #2E8A82;
+  --teal:      #3FB6AA;
 
   --serif: 'Fraunces', 'Times New Roman', Georgia, serif;
   --sans:  'Inter', system-ui, -apple-system, sans-serif;
@@ -275,9 +287,9 @@ h1, h2, h3, h4 {
 }
 .hero-bg::after {
   width: 360px; height: 360px;
-  background: var(--teal);
+  background: var(--green);
   bottom: -140px; left: -100px;
-  opacity: 0.25;
+  opacity: 0.35;
 }
 
 .hero-grid {
@@ -302,9 +314,9 @@ h1, h2, h3, h4 {
   flex-wrap: wrap;
 }
 .hero-meta .dot {
-  width: 4px; height: 4px;
+  width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--green);
 }
 
 .hero h1 {
@@ -729,7 +741,7 @@ h1, h2, h3, h4 {
   color: var(--ink);
 }
 .scard.dark {
-  background: var(--ink);
+  background: var(--green-2);
   color: var(--canvas);
 }
 .scard.accent {
@@ -789,7 +801,7 @@ h1, h2, h3, h4 {
   font-size: 112px;
   line-height: 0.85;
   letter-spacing: -0.06em;
-  color: var(--accent);
+  color: var(--green-2);
   font-style: italic;
   margin: var(--s-2) 0;
 }
@@ -850,7 +862,7 @@ h1, h2, h3, h4 {
    ========================================================= */
 
 .bath {
-  background: var(--ink);
+  background: var(--green-2);
   color: var(--canvas);
   padding: var(--s-10) 0 var(--s-9);
   overflow: hidden;
@@ -976,8 +988,8 @@ h1, h2, h3, h4 {
   transition: background 0.4s var(--ease), border-color 0.4s var(--ease), transform 0.4s var(--ease);
 }
 .bcard:hover {
-  background: rgba(217,80,26,0.12);
-  border-color: var(--accent);
+  background: rgba(250,246,238,0.10);
+  border-color: rgba(250,246,238,0.35);
   transform: translateY(-3px);
 }
 .bcard.accent {
@@ -1296,12 +1308,12 @@ h1, h2, h3, h4 {
 .float-btn:hover { transform: translateY(-2px) scale(1.06); }
 .float-btn svg { width: 24px; height: 24px; }
 .float-tel { background: var(--ink); box-shadow: 0 12px 30px rgba(31,22,17,0.3); }
-.float-wpp { background: #1F8A5C; box-shadow: 0 12px 30px rgba(31,138,92,0.4); }
+.float-wpp { background: var(--green-2); box-shadow: 0 12px 30px rgba(46,138,130,0.4); }
 .float-wpp::before {
   content: '';
   position: absolute; inset: 0;
   border-radius: 50%;
-  background: #1F8A5C;
+  background: var(--green-2);
   animation: pulse 2.4s infinite;
   z-index: -1;
 }
@@ -1402,11 +1414,11 @@ h1, h2, h3, h4 {
       <a href="#localizacao">Localização</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-ghost" href="tel:+5546999099437">
+      <a class="btn btn-ghost" href="tel:+554635365350">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         Ligar
       </a>
-      <a class="btn btn-primary" href="#" data-wa="nav">WhatsApp</a>
+      <a class="btn btn-accent" href="#" data-wa="nav">WhatsApp</a>
     </div>
   </div>
 </header>
@@ -1422,7 +1434,7 @@ h1, h2, h3, h4 {
           <span class="dot"></span>
           <span>Desde 2014</span>
           <span class="dot"></span>
-          <span>Plantão 24h</span>
+          <span>Plantão sobreaviso</span>
         </div>
         <h1>
           <span class="line">Cuidamos do</span>
@@ -1437,9 +1449,9 @@ h1, h2, h3, h4 {
           </span>
           <span class="line italic">como família.</span>
         </h1>
-        <p class="hero-lede">Há mais de uma década atendendo as famílias e os pets de Dois Vizinhos. Consulta, cirurgia, exames, banho e tosa — e plantão 24 horas quando você mais precisa.</p>
+        <p class="hero-lede">Há mais de uma década atendendo as famílias e os pets de Dois Vizinhos. Consulta, cirurgia, exames, banho e tosa — e plantão sobreaviso fora do horário comercial quando você mais precisa.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="tel:+5546999099437">
+          <a class="btn btn-primary btn-lg" href="tel:+554635365350">
             Ligar agora
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
           </a>
@@ -1452,7 +1464,7 @@ h1, h2, h3, h4 {
           </div>
           <div>
             <dt>Telefone</dt>
-            <dd>(46) 99909-9437</dd>
+            <dd>(46) 3536-5350</dd>
           </div>
           <div>
             <dt>Horário</dt>
@@ -1478,7 +1490,7 @@ h1, h2, h3, h4 {
       <span class="chip dark">Ecocardiograma</span><span class="star">✦</span>
       <span class="chip">Ultrassom</span><span class="star">✦</span>
       <span class="chip">Endoscopia</span><span class="star">✦</span>
-      <span class="chip dark">Internação</span><span class="star">✦</span>
+      <span class="chip dark">Vacinação</span><span class="star">✦</span>
       <!-- duplicado -->
       <span class="chip">Consulta clínica</span><span class="star">✦</span>
       <span class="chip dark">Cirurgia geral</span><span class="star">✦</span>
@@ -1487,12 +1499,12 @@ h1, h2, h3, h4 {
       <span class="chip dark">Ecocardiograma</span><span class="star">✦</span>
       <span class="chip">Ultrassom</span><span class="star">✦</span>
       <span class="chip">Endoscopia</span><span class="star">✦</span>
-      <span class="chip dark">Internação</span><span class="star">✦</span>
+      <span class="chip dark">Vacinação</span><span class="star">✦</span>
     </div>
   </div>
   <div class="marquee-row right">
     <div class="marquee-track">
-      <span class="chip dark">Plantão 24 horas</span><span class="star">✦</span>
+      <span class="chip dark">Plantão sobreaviso</span><span class="star">✦</span>
       <span class="chip">Banho &amp; Tosa</span><span class="star">✦</span>
       <span class="chip">Busca em casa</span><span class="star">✦</span>
       <span class="chip dark">Entrega em casa</span><span class="star">✦</span>
@@ -1501,7 +1513,7 @@ h1, h2, h3, h4 {
       <span class="chip dark">Eletrocardiograma</span><span class="star">✦</span>
       <span class="chip">Estética animal</span><span class="star">✦</span>
       <!-- duplicado -->
-      <span class="chip dark">Plantão 24 horas</span><span class="star">✦</span>
+      <span class="chip dark">Plantão sobreaviso</span><span class="star">✦</span>
       <span class="chip">Banho &amp; Tosa</span><span class="star">✦</span>
       <span class="chip">Busca em casa</span><span class="star">✦</span>
       <span class="chip dark">Entrega em casa</span><span class="star">✦</span>
@@ -1533,8 +1545,8 @@ h1, h2, h3, h4 {
             <dd>100<span class="sub">a 150</span></dd>
           </div>
           <div>
-            <dt>Atendimento</dt>
-            <dd>24<span class="sub">h por dia</span></dd>
+            <dt>Plantão</dt>
+            <dd>S/A<span class="sub">sobreaviso</span></dd>
           </div>
           <div>
             <dt>Veterinárias</dt>
@@ -1604,7 +1616,7 @@ h1, h2, h3, h4 {
         <div>
           <span class="s-num">No. 03</span>
           <div class="s-title">Banho &amp; Tosa</div>
-          <div class="s-desc">Pacote de 4 banhos por R$ 85. Remarcação flexível e busca em casa.</div>
+          <div class="s-desc">Pacote de 4 banhos por R$ 105. Remarcação flexível e busca em casa.</div>
         </div>
         <div class="s-foot">
           <span class="s-label">Ver pacote</span>
@@ -1612,10 +1624,10 @@ h1, h2, h3, h4 {
         </div>
       </a>
 
-      <a class="scard accent" href="tel:+5546999099437">
+      <a class="scard accent" href="tel:+554635365350">
         <div>
           <span class="s-num">Plantão</span>
-          <div class="s-title">24 horas, todos os dias</div>
+          <div class="s-title">Sobreaviso fora do horário comercial</div>
           <div class="s-desc">Atendimento de emergência via sobreaviso. Você liga, a veterinária vem.</div>
         </div>
         <div class="s-foot">
@@ -1646,11 +1658,11 @@ h1, h2, h3, h4 {
         </div>
       </a>
 
-      <a class="scard dark" href="#" data-wa="serv-internacao">
+      <a class="scard dark" href="#" data-wa="serv-vacina">
         <div>
           <span class="s-num">No. 05</span>
-          <div class="s-title">Internação <em>com monitoramento</em></div>
-          <div class="s-desc">Estrutura própria com câmera 24h. Acompanhamento veterinário contínuo.</div>
+          <div class="s-title">Vacinação <em>completa</em></div>
+          <div class="s-desc">Protocolo de vacinação para filhotes e adultos. Calendário individual por pet.</div>
         </div>
         <div class="s-foot">
           <span class="s-label">Conversar</span>
@@ -1686,14 +1698,14 @@ h1, h2, h3, h4 {
         <div>
           <span class="s-num">No. 03</span>
           <div class="s-title">Banho &amp; Tosa</div>
-          <div class="s-desc">Pacote de 4 banhos por R$ 85. Remarcação flexível e busca em casa.</div>
+          <div class="s-desc">Pacote de 4 banhos por R$ 105. Remarcação flexível e busca em casa.</div>
         </div>
         <div class="s-foot"><span class="s-label">Ver pacote</span><span class="s-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       </a>
       <a class="scard accent" href="tel:+5546999099437" aria-hidden="true">
         <div>
           <span class="s-num">Plantão</span>
-          <div class="s-title">24 horas, todos os dias</div>
+          <div class="s-title">Sobreaviso fora do horário comercial</div>
           <div class="s-desc">Atendimento de emergência via sobreaviso. Você liga, a veterinária vem.</div>
         </div>
         <div class="s-foot"><span class="s-label">Ligar agora</span><span class="s-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span></div>
@@ -1713,11 +1725,11 @@ h1, h2, h3, h4 {
         </div>
         <div><div class="s-title">Pets confiando em nós.</div></div>
       </a>
-      <a class="scard dark" href="#" data-wa="serv-internacao" aria-hidden="true">
+      <a class="scard dark" href="#" data-wa="serv-vacina" aria-hidden="true">
         <div>
           <span class="s-num">No. 05</span>
-          <div class="s-title">Internação <em>com monitoramento</em></div>
-          <div class="s-desc">Estrutura própria com câmera 24h. Acompanhamento veterinário contínuo.</div>
+          <div class="s-title">Vacinação <em>completa</em></div>
+          <div class="s-desc">Protocolo de vacinação para filhotes e adultos. Calendário individual por pet.</div>
         </div>
         <div class="s-foot"><span class="s-label">Conversar</span><span class="s-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
       </a>
@@ -1742,7 +1754,7 @@ h1, h2, h3, h4 {
             Agendar banho
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
           </a>
-          <a class="btn btn-ghost" style="color:var(--canvas); border-color:rgba(250,246,238,0.4);" href="tel:+5546999099437">(46) 99909-9437</a>
+          <a class="btn btn-ghost" style="color:var(--canvas); border-color:rgba(250,246,238,0.4);" href="tel:+554635365350">(46) 3536-5350</a>
         </div>
       </div>
       <div class="bath-visual">
@@ -1751,7 +1763,7 @@ h1, h2, h3, h4 {
         </div>
         <div class="bath-price">
           <div class="tag">Pacote</div>
-          <div class="val"><sup>R$</sup>85</div>
+          <div class="val"><sup>R$</sup>105</div>
           <div class="what">4 banhos com tosa higiênica inclusa. Pago à vista — sem mensalidade.</div>
         </div>
       </div>
@@ -1832,9 +1844,9 @@ h1, h2, h3, h4 {
   <div class="wrap">
     <div class="emerg-grid">
       <div class="emerg-text">
-        <span class="eyebrow">Plantão 24 horas</span>
+        <span class="eyebrow">Plantão sobreaviso</span>
         <h2>Emergência? <span class="italic">Liga.</span></h2>
-        <p>Atendimento de plantão via sobreaviso, 24 horas. Você liga, a veterinária vem até a clínica pra atender. Não tem hora pra urgência veterinária.</p>
+        <p>Atendimento de plantão via sobreaviso, fora do horário comercial. Você liga, a veterinária vem até a clínica pra atender. Não tem hora pra urgência veterinária.</p>
       </div>
       <div class="emerg-right">
         <div class="emerg-live">Disponível agora</div>
@@ -1842,8 +1854,8 @@ h1, h2, h3, h4 {
           <span class="area">(46)</span>99909-9437
         </a>
         <div class="emerg-btns">
-          <a class="btn btn-ghost" href="tel:+5546999099437">Ligar</a>
-          <a class="btn btn-primary" href="#" data-wa="emergencia">WhatsApp</a>
+          <a class="btn btn-ghost" href="tel:+5546999099437">Ligar plantão</a>
+          <a class="btn btn-accent" href="#" data-wa="emergencia">WhatsApp</a>
         </div>
       </div>
     </div>
@@ -1868,12 +1880,12 @@ h1, h2, h3, h4 {
             <dd>Seg a Qui · 8h às 18h<span class="small">Sex 7h30–18h · Sáb 7h30–12h</span></dd>
           </div>
           <div class="local-row">
-            <dt>Plantão</dt>
-            <dd>24 horas via sobreaviso<span class="small">Ligue pra acionar a veterinária</span></dd>
+            <dt>Contato</dt>
+            <dd><a href="tel:+554635365350">(46) 3536-5350</a><span class="small">WhatsApp e telefone no mesmo número</span></dd>
           </div>
           <div class="local-row">
-            <dt>Contato</dt>
-            <dd><a href="tel:+5546999099437">(46) 99909-9437</a><span class="small">WhatsApp e telefone no mesmo número</span></dd>
+            <dt>Plantão</dt>
+            <dd><a href="tel:+5546999099437">(46) 99909-9437</a><span class="small">Sobreaviso fora do horário comercial</span></dd>
           </div>
           <div class="local-row">
             <dt>E-mail</dt>
@@ -1904,9 +1916,9 @@ h1, h2, h3, h4 {
         </div>
         <p class="footer-text">Clínica veterinária independente em Dois Vizinhos, Paraná. Atendemos cães, gatos e a família que cuida deles desde 2014.</p>
         <div class="footer-buttons">
-          <a class="btn btn-ghost" href="tel:+5546999099437">
+          <a class="btn btn-ghost" href="tel:+554635365350">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            (46) 99909-9437
+            (46) 3536-5350
           </a>
           <a class="btn btn-accent" href="#" data-wa="footer-cta">WhatsApp</a>
         </div>
@@ -1925,7 +1937,8 @@ h1, h2, h3, h4 {
       <div class="footer-col">
         <h4>Contato</h4>
         <ul>
-          <li><a href="tel:+5546999099437">(46) 99909-9437</a></li>
+          <li><a href="tel:+554635365350">(46) 3536-5350</a></li>
+          <li><a href="tel:+5546999099437">(46) 99909-9437 — plantão</a></li>
           <li><a href="#" data-wa="footer">WhatsApp</a></li>
           <li><a href="mailto:clinipop.doisvizinhos@gmail.com">clinipop.doisvizinhos@gmail.com</a></li>
           <li><a href="https://instagram.com/clinipop.dv" target="_blank" rel="noopener">@clinipop.dv</a></li>
@@ -1951,7 +1964,7 @@ h1, h2, h3, h4 {
 
 <!-- ========= FLOAT BUTTONS ========= -->
 <div class="float">
-  <a href="tel:+5546999099437" class="float-btn float-tel" aria-label="Ligar">
+  <a href="tel:+554635365350" class="float-btn float-tel" aria-label="Ligar">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
   </a>
   <a href="#" class="float-btn float-wpp" data-wa="float" aria-label="WhatsApp">
@@ -1962,14 +1975,14 @@ h1, h2, h3, h4 {
 <script>
 (function() {
   // ============ WhatsApp tracking de origem ============
-  const WPP = '5546999099437';
+  const WPP = '554635365350';
   const MSG = {
     'nav':           'Oi! Vim pelo site da Clinipop.',
     'hero':          'Oi! Quero agendar uma consulta.',
     'serv-consulta': 'Oi! Quero agendar uma consulta clínica.',
     'serv-cirurgia': 'Oi! Tenho uma dúvida sobre cirurgia.',
     'serv-imagem':   'Oi! Quero saber sobre os exames de imagem.',
-    'serv-internacao':'Oi! Tenho uma dúvida sobre internação.',
+    'serv-vacina':   'Oi! Quero saber sobre vacinação.',
     'banho':         'Oi! Quero agendar banho e tosa.',
     'emergencia':    'EMERGÊNCIA — preciso de atendimento agora.',
     'footer':        'Oi! Vim pelo site da Clinipop.',
