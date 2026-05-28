@@ -16,6 +16,24 @@
   gtag('config', 'AW-18195036626');
 </script>
 
+<!-- Event snippet - conversão de Contato -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18195036626/kmmuCIXcirUcENLziORD',
+      'value': 1.0,
+      'currency': 'BRL',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
 <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -1995,6 +2013,28 @@ h1, h2, h3, h4 {
     el.setAttribute('href', 'https://wa.me/' + WPP + '?text=' + txt);
     el.setAttribute('target', '_blank');
     el.setAttribute('rel', 'noopener');
+  });
+
+  // ============ Conversão Google Ads em cliques de contato ============
+  function reportConversion() {
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18195036626/kmmuCIXcirUcENLziORD',
+        'value': 1.0,
+        'currency': 'BRL'
+      });
+    }
+  }
+  // WhatsApp e e-mail abrem em nova aba/app → só dispara o evento, sem bloquear
+  document.querySelectorAll('[data-wa], a[href^="mailto:"]').forEach(el => {
+    el.addEventListener('click', reportConversion);
+  });
+  // Telefone: usa o redirect oficial pra garantir registro antes de abrir o discador
+  document.querySelectorAll('a[href^="tel:"]').forEach(el => {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      gtag_report_conversion(el.getAttribute('href'));
+    });
   });
 
   // ============ Nav scrolled state ============
